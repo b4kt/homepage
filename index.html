@@ -10,7 +10,31 @@ background-color:black;
 <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
 <title>Freedom-Project Link Page</title>
 </head>
-<body><div align="center" style="border:2px solid green">
+<body><canvas id="c"> <script>
+(function(){
+	//Configurable variables
+	let speed = 10;
+	let particleDensity = 80;
+	let backgroundColor = "#000000";
+	let particleColor = "#ffffff";
+	let lineColor = "#ffffff";
+	let particleSize = 3;
+	let randomSize = true;
+	let interactive = true;
+	//========================
+function random(t,e){return Math.floor(Math.random()*(e-t+1))+t}function randomFloat(t,e){return Math.random()*(e-t+1)+t}function randomDir(){return randomFloat(-Math.PI,Math.PI)}let canvas=document.getElementById("c"),ctx=canvas.getContext("2d");canvas.width=window.innerWidth,canvas.height=window.innerHeight,canvas.style.backgroundColor=backgroundColor,ctx.fillStyle=particleColor,ctx.strokeStyle=lineColor;let i,points=[],x=0,y=0,time=Date.now();interactive&&(canvas.onmousemove=(t=>{x=t.offsetX,y=t.offsetY}),points.push({x:0,y:0,r:1,c:!0}));let addPoint=t=>{let e,i,n=randomDir();if(t){let t=!1;for(;!t;){e=random(-200,canvas.width+200),i=random(-200,canvas.height+200);let n=!1,a=0;for(a=0;a<points.length;a++){let t=points[a];t.c||Math.sqrt((e-t.x)*(e-t.x)+(i-t.y)*(i-t.y))<1/particleDensity*1e3&&(n=!0)}n||(t=!0)}points.push({x:e,y:i,angle:n,r:.1,w:!0,wr:randomSize&&particleSize>1?random(particleSize-2,particleSize+2):particleSize})}else{let t=Math.random();t<=.25?(e=random(1,canvas.width),i=canvas.height+200):t<=.5?(e=canvas.width+200,i=random(1,canvas.height)):t<=.75?(e=-200,i=random(1,canvas.height)):(e=random(1,canvas.width),i=-200),points.push({x:e,y:i,angle:n,r:randomSize&&particleSize>1?random(particleSize-2,particleSize+2):particleSize})}},optimumCount=Math.floor(canvas.height*canvas.width/1e6*particleDensity);for(i=0;i<optimumCount;i++)addPoint(!0);let draw=()=>{let t;for(t=0;t<points.length;t++){let e,i=points[t];for(e=0;e<points.length;e++){let t=points[e],n=i.x-t.x,a=i.y-t.y,o=Math.sqrt(n*n+a*a);if(o<200){let e;i.w?(e=i.r/i.wr)<.1&&(e=.1):t.w&&(e=t.r/t.wr)<.1&&(e=.1),ctx.globalAlpha=e&&e<.5?e*(1-o/200):1-o/200,ctx.beginPath(),ctx.moveTo(i.x,i.y),ctx.lineTo(t.x,t.y),ctx.closePath(),ctx.stroke(),ctx.globalAlpha=1}}}for(t=0;t<points.length;t++){let e=points[t];ctx.beginPath(),ctx.arc(e.x,e.y,e.r,0,2*Math.PI),ctx.fill()}},update=()=>{let t,e=Date.now(),i=(e-time)/1e3;for(time=e,t=0;t<points.length;t++){let e=points[t];if(e.c)e.x=x,e.y=y;else{let n=speed*Math.cos(e.angle),a=speed*Math.sin(e.angle);if(e.x+=n*i,e.y+=a*i,e.w&&e.r<e.wr?e.r+=5*i:(e.w=void 0,e.wr=void 0),e.x<-200||e.x>canvas.width+200||e.y<-200||e.y>canvas.height+200){points.splice(t,1),optimumCount-points.length>=0&&addPoint()}}}},loop=()=>{ctx.clearRect(0,0,canvas.width,canvas.height),update(),draw(),window.requestAnimationFrame(loop)};loop();let resized=!1;window.onresize=(()=>{canvas.width=window.innerWidth,canvas.height=window.innerHeight,(ctx=canvas.getContext("2d")).fillStyle=particleColor,ctx.strokeStyle=lineColor;let t=(optimumCount=Math.floor(canvas.height*canvas.width/1e6*particleDensity))-points.length;if(t>=0){let e;for(e=0;e<t;e++)addPoint(!0)}if(!resized)for(resized=!0,points=[],interactive&&points.push({x:0,y:0,r:1,c:!0}),i=0;i<optimumCount;i++){randomDir();addPoint(!0)}});
+})();
+		</script><style>
+			canvas{
+				background:black;
+			}
+			body{
+				margin:0;
+				padding:0;
+				overflow:hidden;
+			}
+		})();	
+		</style></canvas><div align="center" style="border:2px solid green">
 Freedom-Project Link Listing</div>
 	<br><br><br><br><center>	
 <button style="height:50px;width:200px;font-size:20px" type="button" onclick="window.location.href='https://px.1514.info';">Site 1 Mirror 1</button> <br> <br>
