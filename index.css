@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Unique';
+    src:url('unique.ttf');
+}
+@font-face{
+    font-family:'typewriter';
+    src:url('typewriter.ttf')
+}
+@font-face{
+    font-family:'minecraft';
+    src:url('minecraft.ttf')
+}
+@font-face{
+    font-family:'ussb';
+    src:url('ussb.otf')
+}
+h1 {
+    font-family:Unique;
+    font-size:200%;
+    }
+button {
+    margin-top: 5px;
+    margin-bottom:5px;
+    margin-right:5px;
+    margin-left:5px;
+}
+div {
+    margin-left:20%;
+    margin-right:20%;
+}
+#fplinks {
+    color:white;
+    background-color:rgb(0, 54, 0);
+    height:50px;
+    width:200px;
+    font-size:2em;
+    border-radius:20px;
+    font-family:'typewriter';
+    border-color:rgb(0, 255, 0);
+}
+#fplinks2 {
+    color:white;
+    background-color:rgb(73, 73, 73);
+    height:48px;
+    width:135px;
+    font-size:0.9em;
+    border-radius:20px;
+    font-family:'typewriter';
+    border-color:white;
+}
+#eagle  {
+font-family:'minecraft';
+color:white;
+background-color:rgb(70, 0, 0);
+height:70px;
+width:200px;
+border-color:red;
+font-size:20px;
+border-radius:20px
+}
+#discord {
+color:white;
+background-color:rgb(0, 0, 84);
+border-radius:7px;
+font-family:'ussb';
+font-size:30px;
+letter-spacing:0.1em;
+border-color: blue;
+}
+body {
+    text-align: center;
+    color: white;
+    background-color: #202020;
+    font-family: sans-serif;
+    background-color:black;
+    margin-top:10%;
+}
