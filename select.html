@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Embed Cycler</title>
+    <style>
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="back">Back</button>
+    <button id="next">Next</button>
+
+    <iframe id="webframe" src="https://page.57150.co"></iframe>
+
+    <script>
+        const iframe = document.getElementById('webframe');
+        const urls = ['https://fp.provend.tech', 'https://ab.edgoxide.com', 'https://xs.57150.co'];
+        let currentIndex = 0;
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % urls.length;
+            iframe.src = urls[currentIndex];
+        });
+
+        document.getElementById('back').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + urls.length) % urls.length;
+            iframe.src = urls[currentIndex];
+        });
+    </script>
+</body>
+</html>
