@@ -65,6 +65,27 @@ main {
     transform: scale(1.1); 
 }
 
+.hpmirror {
+    background-color: #421653; 
+    padding: 10px 20px;
+    border: 2px solid #f700ff; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2em;
+    color: #FFFFFF; 
+    font-family: 'typewriter'; 
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2), 0 0 20px rgba(0, 255, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+    margin: 25px;
+}
+
+
+.hpmirror:hover {
+    background-color: #79289a; 
+    box-shadow: 0 0 15px rgba(255, 0, 251, 0.5), 0 0 30px rgba(0, 255, 0, 0.6); 
+    transform: scale(1.25); 
+}
+
 .eaglercraft {
     margin-top: 20px;
 }
@@ -122,12 +143,12 @@ main {
     border: 2px solid #b9b9b9; 
     border-radius: 10px;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.15em;
     color: #FFFFFF;
     box-shadow: 0 0 10px rgba(0, 128, 0, 0.2); 
     transition: all 0.2s ease-in-out;
     margin: 5px;
-    font-family: 'bandits';
+    font-family: 'typewriter';
 }
 
 .bypass:hover {
