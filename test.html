@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proxy Bypass Example</title>
 </head>
 <body>
-  <div id="proxy-container">Original content</div>
+  <div id="proxy-container">Loading content...</div>
 
   <script>
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://pdf.edulastic.one', true);
-    xhr.onload = function() {
-      if (xhr.status === 200) {
+    // Fetch the content from the external site
+    fetch('https://pdf.edulastic.one')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(data => {
+        // Inject the fetched content into the container
         const container = document.getElementById('proxy-container');
-        container.innerHTML = xhr.responseText;
-      }
-    };
-    xhr.send();
+        container.innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error fetching content:', error);
+      });
   </script>
 </body>
 </html>
