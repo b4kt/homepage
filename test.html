@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Proxy Bypass Example</title>
+</head>
+<body>
+  <div id="proxy-container">Original content</div>
+
+  <script>
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://pdf.edulastic.one', true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        const container = document.getElementById('proxy-container');
+        container.innerHTML = xhr.responseText;
+      }
+    };
+    xhr.send();
+  </script>
+</body>
+</html>
