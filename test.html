@@ -3,28 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proxy Bypass Example</title>
+  <title>Proxy Bypass</title>
 </head>
 <body>
-  <div id="proxy-container">Loading content...</div>
+  <div id="proxy-container">Click the button to load content.</div>
+  <button id="load-content-button">Load Content</button>
+  <p id="status">Status: Waiting to load content...</p>
 
   <script>
-    // Fetch the content from the external site
-    fetch('https://pdf.edulastic.one')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.text();
-      })
-      .then(data => {
-        // Inject the fetched content into the container
-        const container = document.getElementById('proxy-container');
-        container.innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Error fetching content:', error);
-      });
+    document.getElementById('load-content-button').addEventListener('click', () => {
+      // Update status to loading
+      const statusElement = document.getElementById('status');
+      statusElement.textContent = 'Status: Loading content...';
+
+      // Fetch the content from the external site
+      fetch('https://pdf.edulastic.one')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.text();
+        })
+        .then(data => {
+          // Inject the fetched content into the container
+          const container = document.getElementById('proxy-container');
+          container.innerHTML = data;
+
+          // Update status to success
+          statusElement.textContent = 'Status: Content loaded successfully!';
+        })
+        .catch(error => {
+          // Update status to failed
+          statusElement.textContent = `Status: Failed to load content. Error: ${error.message}`;
+          console.error('Error fetching content:', error);
+        });
+    });
   </script>
 </body>
 </html>
