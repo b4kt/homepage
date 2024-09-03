@@ -211,6 +211,11 @@ main {
     src:url('bandits.ttf');
 }
 
+@font-face {
+    font-family: 'asb';
+    src:url('asb.ttf');
+}
+
 .donate-btn {
     background-color: #000066;
     padding: 10px 20px;
