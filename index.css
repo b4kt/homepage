@@ -87,22 +87,21 @@ main {
 }
 
 .beta {
-    background-color: #421653; 
+    background-color: #F28C28;
     padding: 10px 20px;
     border: 2px solid #f700ff; 
     border-radius: 10px;
     cursor: pointer;
     font-size: 1.5em;
-    color: #F28C28; 
+    color: #FFFFFF;
     font-family: 'typewriter'; 
-    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5), 0 0 30px rgba(255, 140, 0, 0.6);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.6);
     transition: all 0.2s ease-in-out;
     margin: 25px;
 }
 
-
 .beta:hover {
-    background-color: #FFAC1C; 
+    background-color: #FFAC1C;
     box-shadow: 0 0 15px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.6);
     transform: scale(1.25); 
 }
