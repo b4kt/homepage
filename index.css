@@ -2,20 +2,17 @@
     font-family: 'Unique';
     src:url('unique.ttf');
 }
-
 body {
     font-family: asb;
     background-color: #000;
     color: #FFFFFF;
     text-align: center;
 }
-
 header {
     background-color: #000;
     padding: 20px;
     border-bottom: 1px solid #004400;
 }
-
 header h1 {
     font-size: 2em;
     margin: 0;
@@ -23,27 +20,23 @@ header h1 {
     font-family: 'Unique'; 
     text-shadow: 0px 0px 10px #00FF00; 
 }
-
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
-
 .mirrors {
     background-color: #000; 
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 128, 0, 0.2); 
 }
-
 .mirror-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .mirror {
     background-color: #004400; 
     padding: 10px 20px;
@@ -57,14 +50,11 @@ main {
     transition: all 0.2s ease-in-out;
     margin: 10px;
 }
-
-
 .mirror:hover {
     background-color: #006600; 
     box-shadow: 0 0 15px rgba(0, 128, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.6); 
     transform: scale(1.1); 
 }
-
 .hpmirror {
     background-color: #421653; 
     padding: 10px 20px;
@@ -74,18 +64,15 @@ main {
     font-size: 2em;
     color: #FFFFFF; 
     font-family: 'typewriter'; 
-    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2), 0 0 20px rgba(0, 255, 0, 0.4);
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2), 0 0 20px rgb(188 0 185 / 50%);
     transition: all 0.2s ease-in-out;
     margin: 25px;
 }
-
-
 .hpmirror:hover {
     background-color: #79289a; 
-    box-shadow: 0 0 15px rgba(255, 0, 251, 0.5), 0 0 30px rgba(0, 255, 0, 0.6); 
+    box-shadow: 0 0 15px rgba(255, 0, 251, 0.5), 0 0 30px rgba(255, 0, 251, 0.5); 
     transform: scale(1.25); 
 }
-
 .beta {
     background-color: #a75900;
     padding: 10px 20px;
@@ -105,11 +92,9 @@ main {
     box-shadow: 0 0 15px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.6);
     transform: scale(1.25); 
 }
-
 .eaglercraft {
     margin-top: 20px;
 }
-
 .eaglercraft-btn {
     background-color: #660033;
     padding: 10px 20px;
@@ -122,18 +107,14 @@ main {
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.4);
     transition: all 0.2s ease-in-out;
 }
-
 .eaglercraft-btn:hover {
     background-color: #7F0033;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.6);
     transform: scale(1.1);
 }
-
-
 .discord {
     margin-top: 20px;
 }
-
 .discord-btn {
     background-color: #000066;
     padding: 10px 20px;
@@ -146,17 +127,14 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.2), 0 0 20px rgba(0, 0, 255, 0.4);
     transition: all 0.2s ease-in-out;
 }
-
 .discord-btn:hover {
     background-color: #000077;
     box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.6);
     transform: scale(1.1);
 }
-
 .bypasses {
     margin-top: 20px;
 }
-
 .bypass {
     background-color: #404040f8; 
     padding: 10px 20px;
@@ -170,13 +148,11 @@ main {
     margin: 5px;
     font-family: 'typewriter';
 }
-
 .bypass:hover {
     background-color: #404040f8;
     box-shadow: 0 0 15px rgba(0, 128, 0, 0.4); 
     transform: scale(1.1); 
 }
-
 .announcements {
     margin-top: 20px;
     background-color: #000;
@@ -184,27 +160,22 @@ main {
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 128, 0, 0.2);
 }
-
 .announcements h2 {
     margin-top: 0;
     color: #FFFFFF;
 }
-
 .announcements ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 .announcements li {
     padding: 10px;
     border-bottom: 1px solid #004400;
 }
-
 .announcements li:last-child {
     border-bottom: none;
 }
-
 @media only screen and (max-width: 768px) {
     main {
         padding: 10px;
@@ -220,22 +191,18 @@ main {
     font-family: 'typewriter';
     src:url('typewriter.ttf');
 }
-
 @font-face {
     font-family: 'minecraft';
     src:url('minecraft.ttf');
 }
-
 @font-face {
     font-family: 'bandits';
     src:url('bandits.ttf');
 }
-
 @font-face {
     font-family: 'asb';
     src:url('asb.ttf');
 }
-
 .donate-btn {
     background-color: #000066;
     padding: 10px 20px;
@@ -248,8 +215,6 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.2), 0 0 20px rgba(0, 0, 255, 0.4);
     transition: all 0.2s ease-in-out;
 }
-
-
 .donate-btn:hover {
     background-color: #000077;
     box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255);
