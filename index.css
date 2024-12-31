@@ -73,6 +73,26 @@ main {
     box-shadow: 0 0 15px rgba(255, 0, 251, 0.5), 0 0 30px rgba(255, 0, 251, 0.5); 
     transform: scale(1.25); 
 }
+.cmirror {
+    background-color: #e67e00; 
+    padding: 10px 20px;
+    border: 2px solid #ff981a; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2em;
+    color: #FFFFFF; 
+    font-family: 'typewriter'; 
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2), 0 0 20px rgb(188 0 185 / 50%);
+    transition: all 0.2s ease-in-out;
+    margin: 25px;
+}
+.cmirror:hover {
+    background-color: #ffa333; 
+    box-shadow: 0 0 15px rgba(255, 0, 251, 0.5), 0 0 30px rgba(255, 0, 251, 0.5); 
+    transform: scale(1.25); 
+}
+
+
 .beta {
     background-color: #a75900;
     padding: 10px 20px;
