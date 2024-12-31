@@ -74,12 +74,12 @@ main {
     transform: scale(1.25); 
 }
 .cmirror {
-    background-color: #e67e00; 
+    background-color: #DC582A; 
     padding: 10px 20px;
     border: 2px solid #ff981a; 
     border-radius: 10px;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.2em;
     color: #FFFFFF; 
     font-family: 'typewriter'; 
     box-shadow: 0 0 10px rgba(0, 128, 0, 0.2), 0 0 20px rgb(188 0 185 / 50%);
