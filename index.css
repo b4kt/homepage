@@ -27,11 +27,12 @@ main {
     padding: 20px;
 }
 .mirrors {
-    background-color: #000; 
+    background-color: transparent; 
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2); 
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.15); 
 }
+
 .mirror-list {
     display: flex;
     flex-wrap: wrap;
@@ -175,27 +176,38 @@ main {
 }
 .announcements {
     margin-top: 20px;
-    background-color: #000;
+    background-color: transparent;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
 }
 .announcements h2 {
-    margin-top: 0;
-    color: #FFFFFF;
-}
-.announcements ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 15px 0 10px 0;
 }
 .announcements li {
     padding: 10px;
-    border-bottom: 1px solid #004400;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.4);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .announcements li:last-child {
     border-bottom: none;
 }
+
+/* Add the same style to other important h2 headings for consistency */
+main section h2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 3px #000;
+}
+
 @media only screen and (max-width: 768px) {
     main {
         padding: 10px;
