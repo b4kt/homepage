@@ -6,9 +6,9 @@ let columns = 0,
 const createTile = (index) => {
   const tile = document.createElement("div");
   tile.classList.add("tile");
-
   const greenOpacity = Math.random() * 0.3 + 0.1;
   const purpleOpacity = Math.random() * 0.3 + 0.1;
+
 
   const color =
     Math.random() > 0.5
@@ -31,7 +31,6 @@ const createGrid = () => {
   wrapper.innerHTML = "";
 
   let size;
-  let minRows = 5;
 
   if (document.body.clientWidth <= 480) {
     size = 120;
@@ -42,10 +41,15 @@ const createGrid = () => {
   }
 
   columns = Math.floor(document.body.clientWidth / size);
+  
+  rows = Math.floor(document.body.clientHeight / size);
 
-  rows = Math.max(minRows, Math.min(8, Math.floor(document.body.clientHeight / size)));
 
   if (columns < 4) columns = 4;
+
+  if (document.body.clientWidth > 1200) {
+    rows = Math.min(rows, columns);
+  }
 
   wrapper.style.setProperty("--columns", columns);
   wrapper.style.setProperty("--rows", rows);
