@@ -7,6 +7,7 @@ const createTile = index => {
   const tile = document.createElement("div");
   tile.classList.add("tile");
   
+
   const greenOpacity = Math.random() * 0.3 + 0.1;
   const purpleOpacity = Math.random() * 0.3 + 0.1;
   
@@ -29,10 +30,19 @@ const createTiles = quantity => {
 const createGrid = () => {
   wrapper.innerHTML = "";
   
-  const size = document.body.clientWidth > 800 ? 100 : 50;
+  let size;
+  if (document.body.clientWidth <= 480) {
+    size = 120;
+  } else if (document.body.clientWidth <= 768) {
+    size = 100;
+  } else {
+    size = 80;
+  }
   
   columns = Math.floor(document.body.clientWidth / size);
   rows = Math.floor(document.body.clientHeight / size);
+  
+  if (columns < 4) columns = 4;
   
   wrapper.style.setProperty("--columns", columns);
   wrapper.style.setProperty("--rows", rows);
@@ -44,7 +54,7 @@ const createGrid = () => {
 
 const smoothPulseAnimation = () => {
   const tiles = document.querySelectorAll(".tile");
-
+  
   for (let i = 0; i < 4; i++) {
     const subset = Array.from(tiles).filter((_, index) => index % 4 === i);
     
