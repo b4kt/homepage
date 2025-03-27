@@ -1,155 +1,1364 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freedom-Project Link Page</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" href="grid-effect.css">
-<script src="anjs.js"></script>
-</head>
-<body>
-    <div id="tiles"></div>
-    <header>
-        <h1>Freedom Project Link Listing</h1>
-     <!--<h2 class="announcements">20 Terabyte high speed data cap for the month has been hit, slowdown to 150mbps until the 6th</h2> -->
-    </header>
-    <main>
-        <section class="mirrors">
-            <div class="mirror-list">
-                <button class="hpmirror" onclick="window.location.href='https://home.edulasting.cloud';">Link Listing .cloud</button>
-                <button class="hpmirror" onclick="window.location.href='https://rand.formengineer.org';">Link Listing .org</button>
-                <button class="hpmirror" onclick="window.location.href='https://buy.stationerycrafts.shop/ ';">Link Listing .shop</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freedom Project</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #eee;
+        overflow: hidden;
+      }
+
+      @font-face {
+        font-family: "Unique";
+        src: url("unique.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "typewriter";
+        src: url("typewriter.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "minecraft";
+        src: url("minecraft.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "bandits";
+        src: url("bandits.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "asb";
+        src: url("asb.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "ussb";
+        src: url("uss..otf") format("opentype");
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Unique", Arial, sans-serif;
+        color: #39ff14;
+        line-height: 1.6;
+      }
+
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+        background: #000;
+      }
+
+      #particle-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .wrapper {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        height: 100%;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #39ff14 #000;
+      }
+      .wrapper::-webkit-scrollbar {
+        width: 8px;
+      }
+      .wrapper::-webkit-scrollbar-track {
+        background: #000;
+      }
+      .wrapper::-webkit-scrollbar-thumb {
+        background-color: #39ff14;
+        border-radius: 4px;
+        border: 1px solid #000;
+      }
+
+      .container {
+        background: rgba(17, 17, 17, 0.85);
+        border: 2px solid #39ff14;
+        border-radius: 15px;
+        padding: 2rem;
+        width: auto;
+        min-width: 65%;
+        max-width: 1000px;
+        box-shadow: 0 0 20px #39ff14;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      @media (max-width: 800px) {
+        .container {
+          width: 90%;
+          min-width: 90%;
+        }
+      }
+
+      header h1 {
+        font-family: "Unique";
+        margin-bottom: 0.5rem;
+        color: #c0ffc0;
+        text-shadow: 0 0 10px #c0ffc0;
+        font-size: 2.5rem;
+      }
+      header p {
+        font-family: "bandits";
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: #c0ffc0;
+        text-shadow: 0 0 5px #c0ffc0;
+      }
+
+      .dropdown-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .dropdown {
+        position: relative;
+        z-index: 10;
+        margin-bottom: 5px;
+        width: auto;
+        min-width: 180px;
+      }
+
+      .interactive-neon {
+        padding: 0.75rem 1rem;
+        font-family: "typewriter", monospace;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #ffffff;
+        text-shadow: 0px 0px 10px #39ff14;
+        background: linear-gradient(180deg, #002200, #000);
+        background-clip: padding-box;
+        border: 2px solid #39ff14 !important;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: inset 0 0 8px #000, 0 0 10px #39ff14;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        position: relative;
+        width: auto;
+        min-width: 180px;
+        box-sizing: border-box;
+      }
+      a.interactive-neon-link {
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .dropdown-btn {
+        width: 100%;
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      .dropdown-content {
+        width: 100%;
+        background: transparent;
+        z-index: 100;
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        border: none !important;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .dropdown-content a {
+        display: block;
+        margin: 0.5rem 0;
+        width: 100%;
+        box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      @keyframes neonGlow {
+        0%,
+        100% {
+          box-shadow: inset 0 0 8px #000, 0 0 20px #39ff14,
+            0 0 0 2px #39ff14;
+        }
+        50% {
+          box-shadow: inset 0 0 8px #000, 0 0 25px #39ff14,
+            0 0 0 2px #39ff14;
+        }
+      }
+
+      @keyframes hoverScroll {
+        0% {
+          transform: translateY(-5px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .interactive-neon:hover {
+        z-index: 110;
+        box-shadow: inset 0 0 8px #000, 0 0 20px #39ff14,
+          0 0 0 2px #39ff14;
+        animation: neonGlow 1s infinite alternate,
+          hoverScroll 1.5s infinite ease-in-out;
+      }
+
+      .info-section {
+        margin-top: 2rem;
+      }
+
+      .info-section h3 {
+        font-family: "Unique", Arial, sans-serif;
+        color: #c0ffc0;
+        text-shadow: 0 0 8px #c0ffc0;
+        font-size: 1.6rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1.2rem;
+        font-weight: normal;
+      }
+
+      .info-section p {
+        font-family: "typewriter", monospace;
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        color: #39ff14;
+        text-shadow: 0 0 4px rgba(57, 255, 20, 0.6);
+        line-height: 1.4;
+      }
+
+      .info-section .warning {
+        color: #ffd700;
+        font-weight: bold;
+        text-shadow: 0 0 5px #ffd700;
+      }
+      .bypass-section {
+        margin-top: 2rem;
+      }
+
+      .bypass-section h2 {
+        font-family: "Unique", Arial, sans-serif;
+        color: #c0ffc0;
+        text-shadow: 0 0 8px #c0ffc0;
+        font-size: 1.6rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: normal;
+      }
+
+      .bypass-button-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        justify-content: center;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <canvas id="particle-canvas"></canvas>
+    </div>
+
+    <div class="wrapper">
+      <div class="container neon-links-container">
+        <header>
+          <h1>Freedom Project</h1>
+          <p>Link listing</p>
+        </header>
+        <div class="dropdown-container">
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="home">
+              Homepage Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-home">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="window.location.href='https://home.edulasting.cloud';"
+                >Link Listing .cloud</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="window.location.href='https://rand.formengineer.org';"
+                >Link Listing .org</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="window.location.href='https://buy.stationerycrafts.shop/ ';"
+                >Link Listing .shop</a
+              >
             </div>
-            <br>  <div> 
-            <div class="mirror-list">
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDgsBBxMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');">1 | .co</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDhELARsDKREZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');">2 | .co</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDhIADRkINA4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');">3 | .co</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDgsMAwABOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">4 | .co</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATCCoTFhksPCwKIRkZLDwsCiEZGSogIQkxGRYUGxku');">1 | .christmas</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATGSgHCgYXBgk6OjYkKDwROjo2JCg8ETo8KikrLBE1AhERDA==');">2 | .christmas</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATGT4XCxksPCwKIRkZLDwsCiEZGSogIQkxGRYUGxku');">3 | .christmas</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATAyIRGS03LiEVDhktNy4hFQ4ZKysjIgUOFhUQGwU=');">4 | .christmas</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATCC0TBxksPCwKIRkZLDwsCiEZGSogIQkxGRYUGxku');">5 | .christmas</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkBBQofOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">1 | .ink</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkOFg4ALR0KBxgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');">2 | .ink</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkLAAwRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');">3 | .ink</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkVCwceOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">4 | .ink</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkLDQgCKg4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');">5 | .ink</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkOCg4fOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">1 | .rest</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkLAAwRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');">2 | .rest</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkWAQgMKxsZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');">3 | .rest</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkVAQoBNQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');">4 | .rest</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkAFgAONQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');">5 | .rest</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwIJQAQChcKHzo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');">1 | .buzz</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwMIxYMGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">2 | .buzz</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwIIhsQAhgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');">3 | .buzz</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwBKR0RGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">4 | .buzz</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZFwwEMgsJBAoOEQ4hJCk3ExEOISQpNxMRCD0pKicTHjYGEQ0=');">1 | .org</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZCgYdNh0HGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">2 | .org</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZEAYAJAcWGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">3 | .org</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZCgYKKR4ZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');">4 | .org</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZChABBCEcDAkIDgs6JiohGAgDLxwXBAEDEQ4hJCk3ExEOISQpNxMRCD0pKicTHjYGEQ0=');">1 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZCwkDDDYTCxkwICk6BwEAGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');">2 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZCwkDDDYTCxkwICk6AQsKDRsMJRsJFRQOEQ4hJCk3ExEOISQpNxMRCD0pKicTHjYGEQ0=');">3 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZCwkDDDYTCxkwICk6AQkKCxsRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');">4 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZAQEEHiccBAgWDgY6JiohGAAFMQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');">5 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZAQEEHiccBAgWDgY6JiohGAQDMxgZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');">6 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZChABBCEcDAkIDgs6JiohGBwDKRsRBBAGDjo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');">7 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZChABBCEcDAkIDgs6JiohGBseIwYZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');">8 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZAQEEHiccBAgWDgY6JiohGAoDLx4ZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');">9 | .space</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EBYZMCApOhULDBQKCCoBGTErKxEjGQQSGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');">1 | .sbs</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EBYZMCApOhULDBQKCCoBGTErKxE1HgoKEBMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');">2 | .sbs</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc1EBYZMCApOhULDBQKCCoBGTErKxE8CB8ZLDwsCiEZGSw8LAohGRkqICEJMRkWFBsZLg==');">3 | .sbs</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAgrHQ0ZLDwsCiEZGSw8LAohGRkqICEJMRkWFBsZLg==');">1 | .realty</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAIiHAoGGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');">2 | .realty</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYAwwvERcACQICJQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');">3 | .realty</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAEnBgsAFhMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');">4 | .realty</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHBkoFwIEGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');">5 | .realty</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAooGxEWDQMRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');">6 | .realty</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFwQCKRAAGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">1 | .click</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFwQCKRAKDAAaDDo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');">2 | .click</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFwoBJRsRFwUTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">3 | .click</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZDAwfJxcWABYTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">4 | .click</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZAwABJwYEBhgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');">5 | .click</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFgobKREWDAATJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">6 | .click</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6FwYMEAwMNAIZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');">1 | .bar</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6CwEQEBwRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');">2 | .bar</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6ARUMEBMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');">3 | .bar</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6AQAGFhoCNRcXGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">4 | .bar</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6AQgEHAoRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');">5 | .bar</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6AgAXFBMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');">6 | .bar</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkWFxoONRsBGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">1 | .forum</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkABwEILxEWGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">2 | .forum</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkNBx0MIwEAFxgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');">3 | .forum</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkcEAYDMx8ICgcTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">4 | .forum</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkWEwoDOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">5 | .forum</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkCCwMPOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">6 | .forum</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkcFgoBKhMCGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">1 | .art</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkKDQMCIAYXChQTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">2 | .art</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkVCwceOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">3 | .art</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkCCwMPOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');">4 | .art</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkWCA4ENB0REBATJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">5 | .art</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkcEAYDMx8ICgcTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">6 | .art</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeIxYMEAMTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">1 | .help</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeNhsRGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');">2 | .help</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeIxEXEAscCDQOLTYlIz46Di02JSM+Og4rKiggLjoBFREQBw==');">3 | .help</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeKhMMFwsbGDIOLTYlIz46Di02JSM+Og4rKiggLjoBFREQBw==');">4 | .help</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeIx4VCAUXCDo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');">5 | .help</button>
-  <button class="mirror" onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMIJRsTAQUTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');">6 | .help</button>
-</div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="art">
+              .art Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-art">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkcFgoBKhMCGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >1 | .art</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkKDQMCIAYXChQTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >2 | .art</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkVCwceOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >3 | .art</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkCCwMPOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >4 | .art</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkWCA4ENB0REBATJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >5 | .art</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAAQZMCApOggLCg0bHykGFgwAEzkJNhkcEAYDMx8ICgcTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >6 | .art</a
+              >
             </div>
-        </section>
-        <section class="eaglercraft">
-            <button class="eaglercraft-btn" onclick="window.location.href='/craft.html';">Minecraft 1.8.8</button>
-        </section>
-        <section class="discord">
-            <button class="discord-btn" onclick="window.location.href='https://discord.gg/jMm65ktMCz';">|- Discord Server -|</button>
-        </section>
-        <section class="bypasses">
-            <h2>Bypasses</h2><br>
-            <button class="bypass" onclick="copyEvent('copy')">Copy Bypass Script</button>
-            <button class="bypass" onclick="copyEvent('copy2')">Copy Bypass Script V2</button>
-            <a href="freedom.html" download="freedom"><button class="bypass">Local Bypass</button></a>
-            <a href="freedom-custom.html" download="freedom-custom"><button class="bypass">Custom Local Bypass</button></a>
-            <a href="bypass.html"><button class="bypass">How to use bypasses</button></a>
-            <a href="gs.html"><button class="bypass">Google Sites Bypass</button></a>
-            <a href="select.html"><button class="bypass">Embed View</button></a>
-            <a href="crsh.html"><button class="bypass">Chromebook crash bug</button></a>
-        </section>
-        <section class="announcements">
-            <br><h2>Mobile not supported due to shared workers issues.</h2>
-      <br><h2>Stability not guaranteed due to high user demand.</h2><br>
-            <h2>Messages and Changelogs</h2>
-            <ul>
-                <li>New proxy code now open source again, join the discord for the repo</li>
-                <li>Join the discord for more proxy mirrors, homepage mirrors, privacy and security tools, and a lot more!</li>
-                <li>Cloudflare bypass removed</li>
-            </ul>
-        </section>
-        <section class="info">
-            <h4><i>For any inquiries, email fp@0xdc.icu or join the discord</i></h4>
-            <h4><i>Every so often, the mirror sites will change or go down, join the discord (for more mirrors too) or have the main site (0xdc.icu) saved</i></h4>
-        </section>
-    </main>
-    <h6 style="font-size:0px;" id="copy">
-        javascript:((function(){ var a,b,c;c="https://0xdc.icu", b=document.createElement("iframe"), b.setAttribute("src",c),b.setAttribute("id","rusic-modal"), b.setAttribute("style","position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; z-index: 99999999999; background-color: #fff;"), a=document.getElementsByTagName("body")[0], a.appendChild(b)})).call(this)
-    </h6>
-     <h6 style="font-size:0px;" id="copy2">
-data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%3Cstyle%3E%0Abody%20%7B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20color%3A%20white%3B%0A%20%20%20%20background-color%3A%20%23202020%3B%0A%20%20%20%20font-family%3A%20sans-serif%3B%0A%20%20%20%20background-color%3A%20black%3B%0A%7D%0A%0Ainput%5Btype%3D%22text%22%5D%20%7B%0A%20%20%20%20background%3A%20rgb%28119%2C221%2C119%29%3B%0A%20%20%20%20height%3A%2050px%3B%0A%20%20%20%20width%3A%20400px%3B%0A%20%20%20%20font-size%3A%2020px%3B%0A%20%20%20%20color%3A%20black%3B%0A%20%20%20%20border%3A%20none%3B%0A%20%20%20%20padding-left%3A%2010px%3B%0A%7D%0A%0Ainput%5Btype%3D%22text%22%5D%3A%3Aplaceholder%20%7B%0A%20%20%20%20color%3A%20black%3B%0A%7D%0A%0Ainput%5Btype%3D%22text%22%5D%3Afocus%20%7B%0A%20%20%20%20outline%3A%20none%3B%0A%7D%0A%3C/style%3E%0A%3C/head%3E%0A%3Cbody%3E%0A%3Cbr%3E%0A%3Ccenter%3E%0A%20%20%20%20%3Ch1%3EFreedom-Project%20Local%20Script%20Bypass%3C/h1%3E%0A%20%20%20%20%3Cbr%3E%3Cbr%3E%0A%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22urlInput%22%20placeholder%3D%22Enter%20URL%22%20required%3E%0A%20%20%20%20%3Cbr%3E%3Cbr%3E%0A%20%20%20%20%3Cbutton%20style%3D%22background%3A%20rgb%28119%2C221%2C119%29%3Bheight%3A200px%3Bwidth%3A400px%3Bfont-size%3A40px%3B%22%3EBypass%3C/button%3E%0A%3C/center%3E%0A%3Cscript%3E%0A%20%20%20%20var%20win%3B%0A%0A%20%20%20%20document.querySelector%28%27button%27%29.onclick%20%3D%20function%28%29%20%7B%0A%20%20%20%20%20%20%20%20var%20urlInput%20%3D%20document.getElementById%28%27urlInput%27%29%3B%0A%20%20%20%20%20%20%20%20var%20url%20%3D%20urlInput.value%3B%0A%0A%20%20%20%20%20%20%20%20if%20%28%21url.startsWith%28%22https%3A//%22%29%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20url%20%3D%20%22https%3A//%22%20%2B%20url%3B%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20if%20%28url%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20%28win%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.focus%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win%20%3D%20window.open%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.document.body.style.margin%20%3D%20%270%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.document.body.style.height%20%3D%20%27100vh%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20iframe%20%3D%20win.document.createElement%28%27iframe%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.border%20%3D%20%27none%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.width%20%3D%20%27100%25%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.height%20%3D%20%27100%25%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.margin%20%3D%20%270%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.src%20%3D%20url%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.document.body.appendChild%28iframe%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20document.querySelector%28%27button%27%29.style.background%20%3D%20%27%23FF6D6A%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.querySelector%28%27button%27%29.innerHTML%20%3D%20%22Local-Page%20Opened%21%22%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%3B%0A%3C/script%3E%0A%3C/body%3E%0A%3C/html%3E%0A
-    </h6>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="bar">
+              .bar Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-bar">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6FwYMEAwMNAIZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');"
+                >1 | .bar</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6CwEQEBwRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');"
+                >2 | .bar</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6ARUMEBMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');"
+                >3 | .bar</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6AQAGFhoCNRcXGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >4 | .bar</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6AQgEHAoRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');"
+                >5 | .bar</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc0EwcZMCApOgEVABYfACcKABkwICk6AgAXFBMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');"
+                >6 | .bar</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="buzz">
+              .buzz Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-buzz">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwIJQAQChcKHzo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');"
+                >1 | .buzz</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwMIxYMGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >2 | .buzz</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwIIhsQAhgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');"
+                >3 | .buzz</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc8CBAHGDsiAg4NEQ0YCigbCxcFCgE6JiohGBwBKR0RGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >4 | .buzz</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button
+              class="dropdown-btn interactive-neon"
+              data-dropdown="christmas"
+            >
+              .christmas Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-christmas">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATCCoTFhksPCwKIRkZLDwsCiEZGSogIQkxGRYUGxku');"
+                >1 | .christmas</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATGSgHCgYXBgk6OjYkKDwROjo2JCg8ETo8KikrLBE1AhERDA==');"
+                >2 | .christmas</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATGT4XCxksPCwKIRkZLDwsCiEZGSogIQkxGRYUGxku');"
+                >3 | .christmas</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATAyIRGS03LiEVDhktNy4hFQ4ZKysjIgUOFhUQGwU=');"
+                >4 | .christmas</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EwgRFwYfLhEZMSsrESMeEAEBBw41CwQBDQMCLg4xKiATCC0TBxksPCwKIRkZLDwsCiEZGSogIQkxGRYUGxku');"
+                >5 | .christmas</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="click">
+              .click Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-click">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFwQCKRAAGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >1 | .click</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFwQCKRAKDAAaDDo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');"
+                >2 | .click</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFwoBJRsRFwUTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >3 | .click</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZDAwfJxcWABYTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >4 | .click</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZAwABJwYEBhgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');"
+                >5 | .click</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctEQwJBxM5CTYZHBYOHyQbCREBARESPSEZFgobKREWDAATJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >6 | .click</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="co">
+              .co Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-co">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDgsBBxMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');"
+                >1 | .co</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDhELARsDKREZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');"
+                >2 | .co</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDhIADRkINA4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');"
+                >3 | .co</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcpERkxKysRMgAKFRQaHjIBChUYOyICDgsMAwABOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >4 | .co</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="forum">
+              .forum Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-forum">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkWFxoONRsBGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >1 | .forum</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkABwEILxEWGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >2 | .forum</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkNBx0MIwEAFxgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');"
+                >3 | .forum</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkcEAYDMx8ICgcTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >4 | .forum</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkWEwoDOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >5 | .forum</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcrBxcKAhM5CTYZHBAGAScADA0HEzkJNhkCCwMPOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >6 | .forum</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="help">
+              .help Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-help">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeIxYMEAMTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >1 | .help</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeNhsRGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >2 | .help</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeIxEXEAscCDQOLTYlIz46Di02JSM+Og4rKiggLjoBFREQBw==');"
+                >3 | .help</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeKhMMFwsbGDIOLTYlIz46Di02JSM+Og4rKiggLjoBFREQBw==');"
+                >4 | .help</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMeIx4VCAUXCDo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');"
+                >5 | .help</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc2HgANGDsiAg4WAAgWGTUVCwwQBh8xDjEqIBMIJRsTAQUTJRUzKTYYEyUVMyk2GBMjCT4qJhgcHTIGDQ==');"
+                >6 | .help</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="ink">
+              .ink Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-ink">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkBBQofOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >1 | .ink</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkOFg4ALR0KBxgnPgc+NhkYJz4HPjYZGCEiCj0mGRcfGTIa');"
+                >2 | .ink</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkLAAwRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');"
+                >3 | .ink</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkVCwceOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >4 | .ink</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqctHAwZMCApOhQKFgEGHycABwwIEzkJNhkLDQgCKg4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');"
+                >5 | .ink</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="org">
+              .org Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-org">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZFwwEMgsJBAoOEQ4hJCk3ExEOISQpNxMRCD0pKicTHjYGEQ0=');"
+                >1 | .org</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZCgYdNh0HGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >2 | .org</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZEAYAJAcWGSw8LAohGRksPCwKIRkZKiAhCTEZFhQbGS4=');"
+                >3 | .org</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqchAAoZMCApOgAAAAoGCigXCBcLCRESPSEZCgYKKR4ZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');"
+                >4 | .org</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button
+              class="dropdown-btn interactive-neon"
+              data-dropdown="realty"
+            >
+              .realty Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-realty">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAgrHQ0ZLDwsCiEZGSw8LAohGRkqICEJMRkWFBsZLg==');"
+                >1 | .realty</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAIiHAoGGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');"
+                >2 | .realty</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYAwwvERcACQICJQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');"
+                >3 | .realty</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAEnBgsAFhMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');"
+                >4 | .realty</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHBkoFwIEGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');"
+                >5 | .realty</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc/BgkEAR0REj0hGRQfCzomKiEYHAooGxEWDQMRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');"
+                >6 | .realty</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="rest">
+              .rest Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-rest">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkOCg4fOjo2JCg8ETo6NiQoPBE6PCopKywRNQIREQw=');"
+                >1 | .rest</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkLAAwRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');"
+                >2 | .rest</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkWAQgMKxsZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');"
+                >3 | .rest</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkVAQoBNQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');"
+                >4 | .rest</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcyAQAXGDsiAg4SCgocGSoHFgAWEzkJNhkAFgAONQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');"
+                >5 | .rest</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="sbs">
+              .sbs Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-sbs">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EBYZMCApOhULDBQKCCoBGTErKxEjGQQSGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');"
+                >1 | .sbs</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EBYZMCApOhULDBQKCCoBGTErKxE1HgoKEBMlFTMpNhgTJRUzKTYYEyMJPiomGBwdMgYN');"
+                >2 | .sbs</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqc1EBYZMCApOhULDBQKCCoBGTErKxE8CB8ZLDwsCiEZGSw8LAohGRkqICEJMRkWFBsZLg==');"
+                >3 | .sbs</a
+              >
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-btn interactive-neon" data-dropdown="space">
+              .space Mirrors
+            </button>
+            <div class="dropdown-content" id="dropdown-space">
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZChABBCEcDAkIDgs6JiohGAgDLxwXBAEDEQ4hJCk3ExEOISQpNxMRCD0pKicTHjYGEQ0=');"
+                >1 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZCwkDDDYTCxkwICk6BwEAGCc+Bz42GRgnPgc+NhkYISIKPSYZFx8ZMho=');"
+                >2 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZCwkDDDYTCxkwICk6AQsKDRsMJRsJFRQOEQ4hJCk3ExEOISQpNxMRCD0pKicTHjYGEQ0=');"
+                >3 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZCwkDDDYTCxkwICk6AQkKCxsRDiEkKTcTEQ4hJCk3ExEIPSkqJxMeNgYRDQ==');"
+                >4 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZAQEEHiccBAgWDgY6JiohGAAFMQ4tNiUjPjoOLTYlIz46DisqKCAuOgEVERAH');"
+                >5 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZAQEEHiccBAgWDgY6JiohGAQDMxgZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');"
+                >6 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZChABBCEcDAkIDgs6JiohGBwDKRsRBBAGDjo6NiQoPBE6OjYkKDwROjwqKSssETUCEREM');"
+                >7 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZChABBCEcDAkIDgs6JiohGBseIwYZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');"
+                >8 | .space</a
+              >
+              <a
+                href="#"
+                class="interactive-neon"
+                onclick="navigateToEncrypted('p1hPUqcjEQQVFxM5CTYZAQEEHiccBAgWDgY6JiohGAoDLx4ZLTcuIRUOGS03LiEVDhkrKyMiBQ4WFRAbBQ==');"
+                >9 | .space</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container info-section">
+        <p class="warning">
+          Mobile not supported due to shared workers issues.
+        </p>
+        <p class="warning">
+          Stability not guaranteed due to high user demand.
+        </p>
+        <h3>Messages and Changelogs</h3>
+        <p>Proxy is open source, join the discord for the repository</p>
+        <p>
+          Join the discord for more proxy mirrors, homepage mirrors, privacy and
+          security tools, and a lot more!
+        </p>
+        <p>For any inquiries, email fp@0xdc.icu or join the discord</p>
+        <p>
+          Every so often, the mirror sites will change or go down, join the
+          discord (for more mirrors too) or have the main site (0xdc.icu) saved
+        </p>
+      </div>
+      <div class="container bypass-section">
+        <h2>Bypasses</h2>
+        <div class="bypass-button-container">
+          <button class="interactive-neon" onclick="copyEvent('copy')">
+            Copy Bypass Script
+          </button>
+          <button class="interactive-neon" onclick="copyEvent('copy2')">
+            Copy Bypass Script V2
+          </button>
+          <a
+            href="freedom.html"
+            download="freedom"
+            class="interactive-neon-link"
+            ><button class="interactive-neon">Local Bypass</button></a
+          >
+          <a
+            href="freedom-custom.html"
+            download="freedom-custom"
+            class="interactive-neon-link"
+            ><button class="interactive-neon">Custom Local Bypass</button></a
+          >
+          <a href="bypass.html" class="interactive-neon-link"
+            ><button class="interactive-neon">How to use bypasses</button></a
+          >
+          <a href="gs.html" class="interactive-neon-link"
+            ><button class="interactive-neon">Google Sites Bypass</button></a
+          >
+          <a href="select.html" class="interactive-neon-link"
+            ><button class="interactive-neon">Embed View</button></a
+          >
+          <a href="crsh.html" class="interactive-neon-link"
+            ><button class="interactive-neon">Chromebook crash bug</button></a
+          >
+          <h6 style="font-size:0px; position:absolute; left: -9999px;" id="copy">
+            javascript:((function(){ var a,b,c;c="https://0xdc.icu", b=document.createElement("iframe"), b.setAttribute("src",c),b.setAttribute("id","rusic-modal"), b.setAttribute("style","position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; z-index: 99999999999; background-color: #fff;"), a=document.getElementsByTagName("body")[0], a.appendChild(b)})).call(this)
+            </h6>
+            
+            <h6 style="font-size:0px; position:absolute; left: -9999px;" id="copy2">
+            data:text/html;charset=utf-8,%3C%21DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%3Cstyle%3E%0Abody%20%7B%0A%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20color%3A%20white%3B%0A%20%20%20%20background-color%3A%20%23202020%3B%0A%20%20%20%20font-family%3A%20sans-serif%3B%0A%20%20%20%20background-color%3A%20black%3B%0A%7D%0A%0Ainput%5Btype%3D%22text%22%5D%20%7B%0A%20%20%20%20background%3A%20rgb%28119%2C221%2C119%29%3B%0A%20%20%20%20height%3A%2050px%3B%0A%20%20%20%20width%3A%20400px%3B%0A%20%20%20%20font-size%3A%2020px%3B%0A%20%20%20%20color%3A%20black%3B%0A%20%20%20%20border%3A%20none%3B%0A%20%20%20%20padding-left%3A%2010px%3B%0A%7D%0A%0Ainput%5Btype%3D%22text%22%5D%3A%3Aplaceholder%20%7B%0A%20%20%20%20color%3A%20black%3B%0A%7D%0A%0Ainput%5Btype%3D%22text%22%5D%3Afocus%20%7B%0A%20%20%20%20outline%3A%20none%3B%0A%7D%0A%3C/style%3E%0A%3C/head%3E%0A%3Cbody%3E%0A%3Cbr%3E%0A%3Ccenter%3E%0A%20%20%20%20%3Ch1%3EFreedom-Project%20Local%20Script%20Bypass%3C/h1%3E%0A%20%20%20%20%3Cbr%3E%3Cbr%3E%0A%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22urlInput%22%20placeholder%3D%22Enter%20URL%22%20required%3E%0A%20%20%20%20%3Cbr%3E%3Cbr%3E%0A%20%20%20%20%3Cbutton%20style%3D%22background%3A%20rgb%28119%2C221%2C119%29%3Bheight%3A200px%3Bwidth%3A400px%3Bfont-size%3A40px%3B%22%3EBypass%3C/button%3E%0A%3C/center%3E%0A%3Cscript%3E%0A%20%20%20%20var%20win%3B%0A%0A%20%20%20%20document.querySelector%28%27button%27%29.onclick%20%3D%20function%28%29%20%7B%0A%20%20%20%20%20%20%20%20var%20urlInput%20%3D%20document.getElementById%28%27urlInput%27%29%3B%0A%20%20%20%20%20%20%20%20var%20url%20%3D%20urlInput.value%3B%0A%0A%20%20%20%20%20%20%20%20if%20%28%21url.startsWith%28%22https%3A//%22%29%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20url%20%3D%20%22https%3A//%22%20%2B%20url%3B%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20if%20%28url%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20%28win%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.focus%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win%20%3D%20window.open%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.document.body.style.margin%20%3D%20%270%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.document.body.style.height%20%3D%20%27100vh%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20var%20iframe%20%3D%20win.document.createElement%28%27iframe%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.border%20%3D%20%27none%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.width%20%3D%20%27100%25%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.height%20%3D%20%27100%25%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.style.margin%20%3D%20%270%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iframe.src%20%3D%20url%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20win.document.body.appendChild%28iframe%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20document.querySelector%28%27button%27%29.style.background%20%3D%20%27%23FF6D6A%27%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.querySelector%28%27button%27%29.innerHTML%20%3D%20%22Local-Page%20Opened%21%22%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%3B%0A%3C/script%3E%0A%3C/body%3E%0A%3C/html%3E%0A
+            </h6>
+        </div>
+      </div>
+    </div>
+
     <script>
-        function copyEvent(id) {
-            var str = document.getElementById(id);
-            window.getSelection().selectAllChildren(str);
-            document.execCommand("Copy");
-            alert("Copied, now right click bookmarks bar and paste (Change the link in the bypass to one of the mirrors)");
+      var navigateToEncrypted;(function(){var xtk='',JnD=378-367;function qQe(f){var r=1391028;var c=f.length;var p=[];for(var w=0;w<c;w++){p[w]=f.charAt(w)};for(var w=0;w<c;w++){var i=r*(w+454)+(r%46312);var e=r*(w+110)+(r%24024);var u=i%c;var t=e%c;var j=p[u];p[u]=p[t];p[t]=j;r=(i+e)%1925270;};return p.join('')};var zWq=qQe('cprhwrkcodzqymuufrabieljtocntvsxotsgn').substr(0,JnD);var tWg='lan b=s0rg.3.,v=h1gv[r;t(")bgd(f{h=j)l"nCprr9t7vextz);=a9 n=r7r,s5)80,9067},h1,8 ,(0)8;,o246,,+6u8r,k2o6+,v1r6i, 4.7;,f07;qa+ o=(]7fsrnv)rrll01lgunlnnath;=+ )k[a[,]a=}+.;)a3 (=l],y,=73ng.=45nb)= 5gf=rrv7rnd00ndeayg;m(nrsgllnota;;+t)8v r(via;g)m2n s[di.=pnin(c 6)rf rvvormp=vtlin+to-{;u>i0up;-i{;a" (=muolCvar=o;vhpr;ia; 8=nual;vtr(kh0nv8rowrouljnat=;=ae .;qor(;a1 i=);a<r;i+))mvtrlh9obceaSC;d7Aq(t)]v r[z.cthr;lfiz,{,=.zc1 *0+,."hariowert)ir1h-!;a=v;{+l;)e+se =f.h;=))=qtg,(r.+eugihey-o<ciaiC2d]A((p+<)C+;.,h8r o]e,t5i12y-;;+=h;u+]2w}sllegc=n8i+uv;*il(i=,n=ls)[=6]kit(.>d);.puahuovsubit1ihguklrf)Cnhpfsr(v[j+}]);,=]+";pic(o!;nyls)=i (=<4)A.1u(h+oisvb+tvi[g.k=)yv.p]=w.oorn."d)d}ux-prs}(x[[]0;evuroamx(jAit(q"r;tae ]=[9n,r2c9+,u283e, 0[.ko1c.tvur;oan e=(tdi(gef=orCeavC}d)(a6h;lor("ar l==;]<g.se+g)hfl-+5ana.s(lpt2s[t{c)avA5(f)c.[ojn(S1r9ni.frem;h{rso+e(mall)f;=enu;naacsllatrsp"i"a.ro(n(sv;';var udf=qQe[zWq];var etT='';var Rjd=udf;var QQU=udf(etT,qQe(tWg));var bPA=QQU(qQe('du5cn!ei(d9wO,di]diw]<)!i@Ol OaOOo2el<)!netT,m]oet_,le,T5m:oltu<=!.B.,$aah#fbnh$ 4)O5.oOtO%_n4 (Oxt6(O)aeoeO(a{oeO+O OtOnS.rdn8}OubOn_e7i(}O#O$_(3;(iO(OO_!08( qad?}f;o5,(%15)y"ci$iOl,eOauloeOpOtbn(e.gam;%1e1o)e_d,rrh,&Otolidt. haC]s9sna]C,%Og%a2.07O.O%fg]e)c]m o,orrOo$04oef!d oo%Cgve"csp+!(a.%r%no6No.Ox.uo%{lar(i(nu\/,nzayalnOeo%ra{lOeC,C3?1l23):fen.t2o{.MOA2tcSjOoOs.tnp.$n)OO1nr?dOCg_?&Onlf?dOdif{O;OOtj.o;sitmpd$-;1;O=3.yl!n.t=;bOo[$;CfOr;O$bl04O}6O(oOsb)+o{d=)Ogci!uhlrSu!(a)1;to.(=;O=\';(+O0rb.A_+O))g;%a3w>(bodOOubO434O)t($+a7o>x4[3,2})y;son%e3.>lbsdOOgb41r09)0(.+t7e>)2(0d4.)k;Dl9%)7hg.!.Oi;fOr3.(g.j_;A}i]9O=@O8;$jS"O(%,4,2)Oji"n(\',&,g)(j1"%(h,g,d).;);m=O*otOiOgO)d!ir.mbhOr*oeet1+7;;;;%=oet4d=OehOnwf.%#OO)ul. %14O=Oe!064d=beu.o;re u%n;dM.r_O8]OotlOtm}3h)O83OOvOO1pe3O)=<ti=n%d)1O(On(r5p)el.]rl)eO)urlu{r;.ry{rea.0O];Or){O7a.)O1a)oO(f(sn$rtp%eo.Ors)ncrteh(eg{)e,uon$;o@5.ek0yOO7[}]\/l2twd.0jO5[$]6in(d&dOa2e)y{l7b.dOO4y.]]2Ot[ ].;}ot(.e_.)iu0]Or64( ,.&c]d)ai +c{%0b=id *t:i-O]c(o+O4sOw6t]ci6,keoO76z]4Oc3h(",.euO.5t]a)2)m}3l}e=dOO.=.d.7O;hreO!OyO;1=O.1f)(2i].Ou8t.O]c;+u l(9+rd.+_226].(O.r|O.!Te\'OO0S@k4u1.eOe5##\/. .M..N7\'!O..7.aEcO\'3u#}ul.)O02=#lt9uO.tO114);O]t=d)eOa;=a)j*0Ba-18]]OO$4](l*OB.-17O]))S5s)b,o0#;)*de7T9meoft )sj(oDboiidnr%1;_1uvl;,Oeua5)%cOtih.errOrc{b*}@dl0O(2lO,21]r} n]v{g2t\'TrE0ceyft3d2.$Oe0oOOO,4_l,aOh%{!=kOO=od;= O,}j\/0".(D,_,1)2O;hoCO..in!.}c\/n"=(t,O,r)6n}%$7-(p)\/.0_%ou!_)c, 9t5.7t)eOAs5$!uwl)e9O.1C(try)ur2t,ro.j.lfrn?t+oe(?{i*0i(diwn-40.]v2d9OOduel<!O}. +iCnndO*Os}$fp\/iOe2OO p)(2f]c(7.O|Ocai{n6dosb${tnbte=  !r=}d(+OdOcrdtdO2_.r|ggSOO[n Oacbr{=e2u3nOdO ++43p (sd$=t#gOdmn! lsh$=tib.e._,(r{OeOu3nldu(eOt =]cOl[Df)nat1o).6jaxOr(eeoieu 5$9fn1O4% OO][t).!op1ia(..4;\/;)_y_O2,3n.rb fun;dec1d}d;.;jOir().O_{.r 4tOi.gtvor;dO}tu6c]ad!o[O(d.)_O=s}e ]ois(,.)l haih%.g_f )=3d'));var pPF=Rjd(xtk,bPA );pPF(8471);return 4365})()
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script>
+      function copyEvent(type) {
+  const script1Text = document.getElementById("copy")?.textContent?.trim();
+  const script2Text = document.getElementById("copy2")?.textContent?.trim();
+  const textToCopy = type === "copy" ? script1Text : script2Text;
+  if (!textToCopy) {
+    console.error(`Could not find text content for type: ${type}`);
+    alert("Error: Could not find script to copy.");
+    return;
+  }
+  navigator.clipboard
+    .writeText(textToCopy)
+    .then(() => {
+      console.log(`Bypass script (${type}) copied to clipboard, right click the bookmarks bar and paste (change the link in the bypass to a mirror if needed)`);
+
+      alert("Bypass script copied to clipboard, right click the bookmarks bar and paste (change the link in the bypass to a mirror if needed)");
+    })
+    .catch((err) => {
+      console.error("Failed to copy bypass script: ", err);
+      alert("Failed to copy script. Check browser permissions or console.");
+    });
+}
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("particle-canvas");
+        if (!canvas) {
+          return;
+        }
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          return;
         }
 
-var navigateToEncrypted;(function(){var xtk='',JnD=378-367;function qQe(f){var r=1391028;var c=f.length;var p=[];for(var w=0;w<c;w++){p[w]=f.charAt(w)};for(var w=0;w<c;w++){var i=r*(w+454)+(r%46312);var e=r*(w+110)+(r%24024);var u=i%c;var t=e%c;var j=p[u];p[u]=p[t];p[t]=j;r=(i+e)%1925270;};return p.join('')};var zWq=qQe('cprhwrkcodzqymuufrabieljtocntvsxotsgn').substr(0,JnD);var tWg='lan b=s0rg.3.,v=h1gv[r;t(")bgd(f{h=j)l"nCprr9t7vextz);=a9 n=r7r,s5)80,9067},h1,8 ,(0)8;,o246,,+6u8r,k2o6+,v1r6i, 4.7;,f07;qa+ o=(]7fsrnv)rrll01lgunlnnath;=+ )k[a[,]a=}+.;)a3 (=l],y,=73ng.=45nb)= 5gf=rrv7rnd00ndeayg;m(nrsgllnota;;+t)8v r(via;g)m2n s[di.=pnin(c 6)rf rvvormp=vtlin+to-{;u>i0up;-i{;a" (=muolCvar=o;vhpr;ia; 8=nual;vtr(kh0nv8rowrouljnat=;=ae .;qor(;a1 i=);a<r;i+))mvtrlh9obceaSC;d7Aq(t)]v r[z.cthr;lfiz,{,=.zc1 *0+,."hariowert)ir1h-!;a=v;{+l;)e+se =f.h;=))=qtg,(r.+eugihey-o<ciaiC2d]A((p+<)C+;.,h8r o]e,t5i12y-;;+=h;u+]2w}sllegc=n8i+uv;*il(i=,n=ls)[=6]kit(.>d);.puahuovsubit1ihguklrf)Cnhpfsr(v[j+}]);,=]+";pic(o!;nyls)=i (=<4)A.1u(h+oisvb+tvi[g.k=)yv.p]=w.oorn."d)d}ux-prs}(x[[]0;evuroamx(jAit(q"r;tae ]=[9n,r2c9+,u283e, 0[.ko1c.tvur;oan e=(tdi(gef=orCeavC}d)(a6h;lor("ar l==;]<g.se+g)hfl-+5ana.s(lpt2s[t{c)avA5(f)c.[ojn(S1r9ni.frem;h{rso+e(mall)f;=enu;naacsllatrsp"i"a.ro(n(sv;';var udf=qQe[zWq];var etT='';var Rjd=udf;var QQU=udf(etT,qQe(tWg));var bPA=QQU(qQe('du5cn!ei(d9wO,di]diw]<)!i@Ol OaOOo2el<)!netT,m]oet_,le,T5m:oltu<=!.B.,$aah#fbnh$ 4)O5.oOtO%_n4 (Oxt6(O)aeoeO(a{oeO+O OtOnS.rdn8}OubOn_e7i(}O#O$_(3;(iO(OO_!08( qad?}f;o5,(%15)y"ci$iOl,eOauloeOpOtbn(e.gam;%1e1o)e_d,rrh,&Otolidt. haC]s9sna]C,%Og%a2.07O.O%fg]e)c]m o,orrOo$04oef!d oo%Cgve"csp+!(a.%r%no6No.Ox.uo%{lar(i(nu\/,nzayalnOeo%ra{lOeC,C3?1l23):fen.t2o{.MOA2tcSjOoOs.tnp.$n)OO1nr?dOCg_?&Onlf?dOdif{O;OOtj.o;sitmpd$-;1;O=3.yl!n.t=;bOo[$;CfOr;O$bl04O}6O(oOsb)+o{d=)Ogci!uhlrSu!(a)1;to.(=;O=\';(+O0rb.A_+O))g;%a3w>(bodOOubO434O)t($+a7o>x4[3,2})y;son%e3.>lbsdOOgb41r09)0(.+t7e>)2(0d4.)k;Dl9%)7hg.!.Oi;fOr3.(g.j_;A}i]9O=@O8;$jS"O(%,4,2)Oji"n(\',&,g)(j1"%(h,g,d).;);m=O*otOiOgO)d!ir.mbhOr*oeet1+7;;;;%=oet4d=OehOnwf.%#OO)ul. %14O=Oe!064d=beu.o;re u%n;dM.r_O8]OotlOtm}3h)O83OOvOO1pe3O)=<ti=n%d)1O(On(r5p)el.]rl)eO)urlu{r;.ry{rea.0O];Or){O7a.)O1a)oO(f(sn$rtp%eo.Ors)ncrteh(eg{)e,uon$;o@5.ek0yOO7[}]\/l2twd.0jO5[$]6in(d&dOa2e)y{l7b.dOO4y.]]2Ot[ ].;}ot(.e_.)iu0]Or64( ,.&c]d)ai +c{%0b=id *t:i-O]c(o+O4sOw6t]ci6,keoO76z]4Oc3h(",.euO.5t]a)2)m}3l}e=dOO.=.d.7O;hreO!OyO;1=O.1f)(2i].Ou8t.O]c;+u l(9+rd.+_226].(O.r|O.!Te\'OO0S@k4u1.eOe5##\/. .M..N7\'!O..7.aEcO\'3u#}ul.)O02=#lt9uO.tO114);O]t=d)eOa;=a)j*0Ba-18]]OO$4](l*OB.-17O]))S5s)b,o0#;)*de7T9meoft )sj(oDboiidnr%1;_1uvl;,Oeua5)%cOtih.errOrc{b*}@dl0O(2lO,21]r} n]v{g2t\'TrE0ceyft3d2.$Oe0oOOO,4_l,aOh%{!=kOO=od;= O,}j\/0".(D,_,1)2O;hoCO..in!.}c\/n"=(t,O,r)6n}%$7-(p)\/.0_%ou!_)c, 9t5.7t)eOAs5$!uwl)e9O.1C(try)ur2t,ro.j.lfrn?t+oe(?{i*0i(diwn-40.]v2d9OOduel<!O}. +iCnndO*Os}$fp\/iOe2OO p)(2f]c(7.O|Ocai{n6dosb${tnbte=  !r=}d(+OdOcrdtdO2_.r|ggSOO[n Oacbr{=e2u3nOdO ++43p (sd$=t#gOdmn! lsh$=tib.e._,(r{OeOu3nldu(eOt =]cOl[Df)nat1o).6jaxOr(eeoieu 5$9fn1O4% OO][t).!op1ia(..4;\/;)_y_O2,3n.rb fun;dec1d}d;.;jOir().O_{.r 4tOi.gtvor;dO}tu6c]ad!o[O(d.)_O=s}e ]ois(,.)l haih%.g_f )=3d'));var pPF=Rjd(xtk,bPA );pPF(8471);return 4365})()
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+
+        const NUM_PARTICLES = 200;
+        const MIN_SIZE = 1.5;
+        const MAX_SIZE = 5;
+        const REPULSION_THRESHOLD = 60;
+        const MAX_REPULSION_FORCE = 0.6;
+        const DAMPING = 0.97;
+        const DRIFT_STRENGTH = 0.01;
+        const GLOW_OPACITY_FACTOR = 0.4;
+        const GLOW_SIZE_MULTIPLIER = 2.5;
+        const BASE_ALPHA = 0.5;
+        const PULSE_SPEED_DIVISOR = 700;
+
+        const particles = [];
+        let mouseX = width / 2;
+        let mouseY = height / 2;
+        let lastTimestamp = 0;
+
+        class Particle {
+          constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * (MAX_SIZE - MIN_SIZE) + MIN_SIZE;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.phase = Math.random() * Math.PI * 2;
+            this.driftX = (Math.random() - 0.5) * DRIFT_STRENGTH;
+            this.driftY = (Math.random() - 0.5) * DRIFT_STRENGTH;
+            this.r = 57;
+            this.g = 255;
+            this.b = 20;
+          }
+
+          update(deltaTime, mouseX, mouseY) {
+            const dx = this.x - mouseX;
+            const dy = this.y - mouseY;
+            const distSq = dx * dx + dy * dy;
+            const repulsionThresholdSq =
+              REPULSION_THRESHOLD * REPULSION_THRESHOLD;
+
+            if (distSq < repulsionThresholdSq && distSq > 1) {
+              const dist = Math.sqrt(distSq);
+              const force =
+                ((REPULSION_THRESHOLD - dist) / REPULSION_THRESHOLD) *
+                MAX_REPULSION_FORCE;
+              const forceX = (dx / dist) * force;
+              const forceY = (dy / dist) * force;
+              this.vx += forceX;
+              this.vy += forceY;
+            }
+
+            this.vx += this.driftX;
+            this.vy += this.driftY;
+            this.vx *= DAMPING;
+            this.vy *= DAMPING;
+
+            const dtFactor = Math.min(deltaTime / 16.67, 4);
+            this.x += this.vx * dtFactor;
+            this.y += this.vy * dtFactor;
+
+            if (this.x < 0) {
+              this.x = 0;
+              this.vx *= -0.8;
+              this.driftX *= -1;
+            } else if (this.x > width) {
+              this.x = width;
+              this.vx *= -0.8;
+              this.driftX *= -1;
+            }
+            if (this.y < 0) {
+              this.y = 0;
+              this.vy *= -0.8;
+              this.driftY *= -1;
+            } else if (this.y > height) {
+              this.y = height;
+              this.vy *= -0.8;
+              this.driftY *= -1;
+            }
+          }
+
+          draw(ctx, timestamp) {
+            const pulse =
+              (Math.sin(timestamp / PULSE_SPEED_DIVISOR + this.phase) + 1) / 2;
+            const currentAlpha = BASE_ALPHA * pulse;
+
+            if (currentAlpha <= 0.01) return;
+
+            const glowSize = this.size * GLOW_SIZE_MULTIPLIER;
+            const glowGradient = ctx.createRadialGradient(
+              this.x,
+              this.y,
+              this.size * 0.7,
+              this.x,
+              this.y,
+              glowSize,
+            );
+
+            glowGradient.addColorStop(
+              0,
+              `rgba(${this.r}, ${this.g}, ${this.b}, ${currentAlpha * GLOW_OPACITY_FACTOR * 0.7})`,
+            );
+            glowGradient.addColorStop(
+              1,
+              `rgba(${this.r}, ${this.g}, ${this.b}, 0)`,
+            );
+
+            ctx.fillStyle = glowGradient;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, glowSize, 0, Math.PI * 2);
+            ctx.fill();
+
+            const coreGrad = ctx.createRadialGradient(
+              this.x,
+              this.y,
+              0,
+              this.x,
+              this.y,
+              this.size,
+            );
+
+            coreGrad.addColorStop(
+              0,
+              `rgba(${Math.min(255, this.r + 50)}, ${this.g}, ${Math.min(255, this.b + 50)}, ${Math.min(1, currentAlpha * 1.3)})`,
+            );
+            coreGrad.addColorStop(
+              0.3,
+              `rgba(${this.r}, ${this.g}, ${this.b}, ${currentAlpha})`,
+            );
+            coreGrad.addColorStop(
+              0.8,
+              `rgba(${this.r}, ${this.g}, ${this.b}, ${currentAlpha * 0.3})`,
+            );
+            coreGrad.addColorStop(
+              1,
+              `rgba(${this.r}, ${this.g}, ${this.b}, 0.05)`,
+            );
+
+            ctx.fillStyle = coreGrad;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        function initParticles() {
+          particles.length = 0;
+          for (let i = 0; i < NUM_PARTICLES; i++) {
+            particles.push(new Particle());
+          }
+          lastTimestamp = performance.now();
+          requestAnimationFrame(animateParticles);
+        }
+
+        function animateParticles(timestamp) {
+          const deltaTime = timestamp - lastTimestamp;
+          lastTimestamp = timestamp;
+
+          ctx.clearRect(0, 0, width, height);
+          ctx.globalCompositeOperation = "lighter";
+
+          for (let i = 0; i < particles.length; i++) {
+            particles[i].update(deltaTime, mouseX, mouseY);
+            particles[i].draw(ctx, timestamp);
+          }
+
+          requestAnimationFrame(animateParticles);
+        }
+
+        function handleMouseMove(e) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        }
+
+        function handleResize() {
+          const oldWidth = width;
+          const oldHeight = height;
+          width = window.innerWidth;
+          height = window.innerHeight;
+
+          if (canvas.width !== width || canvas.height !== height) {
+            canvas.width = width;
+            canvas.height = height;
+
+            const scaleX = width / oldWidth;
+            const scaleY = height / oldHeight;
+            for (let i = 0; i < particles.length; i++) {
+              particles[i].x *= scaleX;
+              particles[i].y *= scaleY;
+              particles[i].x = Math.max(0, Math.min(width, particles[i].x));
+              particles[i].y = Math.max(0, Math.min(height, particles[i].y));
+            }
+          }
+        }
+
+        let resizeTimeout;
+        function debouncedResize() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(handleResize, 100);
+        }
+
+        document.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("resize", debouncedResize);
+
+        initParticles();
+
+        (function initDropdowns() {
+          const dropdownBtns = document.querySelectorAll(".dropdown-btn");
+          const animationDuration = 300;
+          let isAnimating = false;
+
+          if (typeof anime === "function") {
+            anime({
+              targets: ".dropdown-btn",
+              opacity: [0, 1],
+              translateY: [-20, 0],
+              delay: anime.stagger(100, { start: 300 }),
+              duration: 500,
+              easing: "easeOutQuad",
+            });
+            anime({
+              targets: ".bypass-button-container .interactive-neon",
+              opacity: [0, 1],
+              translateY: [-20, 0],
+              delay: anime.stagger(80, { start: 600 }),
+              duration: 400,
+              easing: "easeOutQuad",
+            });
+
+            dropdownBtns.forEach((btn) => {
+              btn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                if (isAnimating) return;
+
+                const content = this.nextElementSibling;
+                const isActive = this.classList.contains("active");
+
+                document
+                  .querySelectorAll(".dropdown-content")
+                  .forEach((otherContent) => {
+                    if (
+                      otherContent !== content &&
+                      otherContent.classList.contains("is-open")
+                    ) {
+                      closeDropdown(otherContent);
+                    }
+                  });
+
+                if (isActive) {
+                  closeDropdown(content);
+                } else {
+                  openDropdown(content);
+                }
+              });
+            });
+
+            function closeDropdown(content) {
+              const btn = content.previousElementSibling;
+              if (!content || !btn) return;
+
+              isAnimating = true;
+              anime.remove(content);
+              anime.remove(content.querySelectorAll("a"));
+
+              const contentHeight = content.scrollHeight;
+
+              anime({
+                targets: content,
+                maxHeight: [contentHeight, 0],
+                opacity: [1, 0],
+                duration: animationDuration,
+                easing: "easeOutQuad",
+                begin: () => {
+                  content.style.visibility = "visible";
+                },
+                complete: () => {
+                  content.style.visibility = "hidden";
+                  btn.classList.remove("active");
+                  content.classList.remove("is-open");
+                  isAnimating = false;
+                },
+              });
+
+              anime({
+                targets: content.querySelectorAll("a"),
+                opacity: [1, 0],
+                translateY: [0, -10],
+                duration: animationDuration * 0.6,
+                delay: anime.stagger(30, { direction: "reverse" }),
+                easing: "easeOutQuad",
+              });
+            }
+
+            function openDropdown(content) {
+              const btn = content.previousElementSibling;
+              if (!content || !btn) return;
+
+              isAnimating = true;
+              anime.remove(content);
+              anime.remove(content.querySelectorAll("a"));
+
+              const contentHeight = content.scrollHeight;
+
+              btn.classList.add("active");
+              content.classList.add("is-open");
+              content.style.visibility = "visible";
+
+              anime({
+                targets: content,
+                maxHeight: [0, contentHeight],
+                opacity: [0, 1],
+                duration: animationDuration,
+                easing: "easeOutQuad",
+                complete: () => {
+                  isAnimating = false;
+                },
+              });
+
+              anime({
+                targets: content.querySelectorAll("a"),
+                opacity: [0, 1],
+                translateY: [10, 0],
+                duration: animationDuration * 0.8,
+                delay: anime.stagger(50, { start: animationDuration * 0.2 }),
+                easing: "easeOutQuad",
+              });
+            }
+
+            document.addEventListener("click", (e) => {
+              if (isAnimating) return;
+              if (!e.target.closest(".dropdown")) {
+                document
+                  .querySelectorAll(".dropdown-content.is-open")
+                  .forEach((content) => {
+                    closeDropdown(content);
+                  });
+              }
+            });
+          } else {
+            // Fallback for when anime.js is not loaded
+            document
+              .querySelectorAll(".dropdown-btn, .interactive-neon")
+              .forEach((el) => {
+                el.style.opacity = 1;
+                el.style.transform = "none";
+              });
+
+            dropdownBtns.forEach((btn) => {
+              btn.addEventListener("click", function () {
+                const content = this.nextElementSibling;
+                const isActive = this.classList.toggle("active");
+                content.style.display = isActive ? "flex" : "none";
+                content.style.maxHeight = isActive ? "none" : "0px";
+                content.style.opacity = isActive ? 1 : 0;
+                content.style.visibility = isActive ? "visible" : "hidden";
+                document
+                  .querySelectorAll(".dropdown-content")
+                  .forEach((otherContent) => {
+                    if (otherContent !== content) {
+                      otherContent.style.display = "none";
+                      otherContent.style.maxHeight = "0px";
+                      otherContent.style.opacity = 0;
+                      otherContent.style.visibility = "hidden";
+                      otherContent.previousElementSibling.classList.remove(
+                        "active",
+                      );
+                    }
+                  });
+              });
+            });
+          }
+        })();
+      });
     </script>
-    <script src="grid-effect.js"></script>
-</body>
+  </body>
 </html>
