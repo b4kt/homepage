@@ -1,0 +1,254 @@
+@font-face {
+    font-family: 'Unique';
+    src:url('unique.ttf');
+}
+body {
+    font-family: asb;
+    background-color: #000;
+    color: #FFFFFF;
+    text-align: center;
+}
+header {
+    background-color: #000;
+    padding: 20px;
+    border-bottom: 1px solid #004400;
+}
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #FFFFFF; 
+    font-family: 'Unique'; 
+    text-shadow: 0px 0px 10px #00FF00; 
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.mirrors {
+    background-color: transparent; 
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.15); 
+}
+
+.mirror-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.mirror {
+    background-color: #004400; 
+    padding: 10px 20px;
+    border: 2px solid #00FF00; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.7em;
+    color: #FFFFFF; 
+    font-family: 'typewriter'; 
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2), 0 0 20px rgba(0, 255, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+    margin: 10px;
+}
+.mirror:hover {
+    background-color: #006600; 
+    box-shadow: 0 0 15px rgba(0, 128, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.6); 
+    transform: scale(1.1); 
+}
+.hpmirror {
+    background-color: #421653; 
+    padding: 10px 20px;
+    border: 2px solid #f700ff; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2em;
+    color: #FFFFFF; 
+    font-family: 'typewriter'; 
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2), 0 0 20px rgb(188 0 185 / 50%);
+    transition: all 0.2s ease-in-out;
+    margin: 25px;
+}
+.hpmirror:hover {
+    background-color: #79289a; 
+    box-shadow: 0 0 15px rgba(255, 0, 251, 0.5), 0 0 30px rgba(255, 0, 251, 0.5); 
+    transform: scale(1.25); 
+}
+.cmirror {
+    background-color: #965200; 
+    padding: 10px 20px;
+    border: 2px solid #ff8c00; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #FFFFFF; 
+    font-family: 'typewriter'; 
+    box-shadow: 0 0 10px rgb(243 112 0 / 20%), 0 0 20px rgb(225 93 0 / 50%);
+    transition: all 0.2s ease-in-out;
+    margin: 25px;
+}
+.cmirror:hover {
+    background-color: #ffa333; 
+    box-shadow: 0 0 15px rgb(176 98 0 / 50%), 0 0 30px rgb(190 88 0 / 50%); 
+    transform: scale(1.25); 
+}
+
+
+.beta {
+    background-color: #a75900;
+    padding: 10px 20px;
+    border: 2px solid #FFAC1C; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #FFFFFF;
+    font-family: 'typewriter'; 
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.6);
+    transition: all 0.2s ease-in-out;
+    margin: 25px;
+}
+
+.beta:hover {
+    background-color: #FFAC1C;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.6);
+    transform: scale(1.25); 
+}
+.eaglercraft {
+    margin-top: 20px;
+}
+.eaglercraft-btn {
+    background-color: #660033;
+    padding: 10px 20px;
+    border: 2px solid #FF0000; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.7em;
+    color: #FFFFFF; 
+    font-family: 'minecraft';
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2), 0 0 20px rgba(255, 0, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+.eaglercraft-btn:hover {
+    background-color: #7F0033;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.6);
+    transform: scale(1.1);
+}
+.discord {
+    margin-top: 20px;
+}
+.discord-btn {
+    background-color: #000066;
+    padding: 10px 20px;
+    border: 2px solid #0000FF;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.7em;
+    color: #FFFFFF;
+    font-family: 'ussb';
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.2), 0 0 20px rgba(0, 0, 255, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+.discord-btn:hover {
+    background-color: #000077;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.6);
+    transform: scale(1.1);
+}
+.bypasses {
+    margin-top: 20px;
+}
+.bypass {
+    background-color: #404040f8; 
+    padding: 10px 20px;
+    border: 2px solid #b9b9b9; 
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.15em;
+    color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.2); 
+    transition: all 0.2s ease-in-out;
+    margin: 5px;
+    font-family: 'typewriter';
+}
+.bypass:hover {
+    background-color: #404040f8;
+    box-shadow: 0 0 15px rgba(0, 128, 0, 0.4); 
+    transform: scale(1.1); 
+}
+.announcements {
+    margin-top: 20px;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+.announcements h2 {
+    background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 15px 0 10px 0;
+}
+.announcements li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.4);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.announcements li:last-child {
+    border-bottom: none;
+}
+
+/* Add the same style to other important h2 headings for consistency */
+main section h2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 3px #000;
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+    .mirror-list {
+        flex-direction: column;
+    }
+    .mirror {
+        margin: 10px 0;
+    }
+}
+@font-face {
+    font-family: 'typewriter';
+    src:url('typewriter.ttf');
+}
+@font-face {
+    font-family: 'minecraft';
+    src:url('minecraft.ttf');
+}
+@font-face {
+    font-family: 'bandits';
+    src:url('bandits.ttf');
+}
+@font-face {
+    font-family: 'asb';
+    src:url('asb.ttf');
+}
+.donate-btn {
+    background-color: #000066;
+    padding: 10px 20px;
+    border: 2px solid #0000FF;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #FFFFFF;
+    font-family: 'ussb';
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.2), 0 0 20px rgba(0, 0, 255, 0.4);
+    transition: all 0.2s ease-in-out;
+}
+.donate-btn:hover {
+    background-color: #000077;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255);
+    transform: scale(1.1);
+}
