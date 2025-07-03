@@ -1,306 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Freedom-Project Link Page</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --primary-color: #00ff41;
-        --bg-color: #000;
-        --container-bg: rgba(0, 20, 0, 0.3);
-        --glow-color: rgba(0, 255, 65, 0.75);
-        --glow-color-faint: rgba(0, 255, 65, 0.5);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Freedom-Project Link Page</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-color: #00ff41;
+      --bg-color: #000;
+      --container-bg: rgba(0,20,0,0.3);
+      --glow-color: rgba(0,255,65,0.75);
+      --glow-color-faint: rgba(0,255,65,0.5);
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--primary-color);
+      font-family: "Special Elite", monospace;
+      margin: 0; padding: 15px;
+      text-align: center;
+    }
+    .main-title {
+      font-size: 2.8rem;
+      color: #fff;
+      text-shadow: 0 0 12px var(--glow-color-faint);
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      font-size: 1.4rem;
+      margin: 0 0 30px;
+      color: #fff;
+    }
+    .content-box {
+      border: 2px solid var(--primary-color);
+      border-radius: 15px;
+      padding: 15px 25px;
+      margin: 20px auto;
+      max-width: 1200px;
+      background-color: var(--container-bg);
+      box-shadow:
+        0 0 15px var(--glow-color-faint),
+        inset 0 0 10px var(--glow-color-faint);
+      backdrop-filter: blur(2px);
+    }
+    .info-box { width: fit-content; margin: 20px auto; }
+    h2 {
+      font-size: 1.8rem;
+      color: #fff;
+      text-decoration: underline var(--primary-color);
+      text-underline-offset: 6px;
+      margin: 5px 0 20px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin: 30px 0 15px;
+    }
+    .link-container {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 10px;
+    }
+    .link-btn {
+      display: inline-block;
+      background-color: #111;
+      color: #fff;
+      border: 1px solid var(--primary-color);
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease, transform 0.1s ease;
+      box-shadow: 0 0 5px var(--glow-color-faint);
+    }
+    .link-btn:hover {
+      background-color: var(--primary-color);
+      color: var(--bg-color);
+      box-shadow: 0 0 15px var(--glow-color);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .info-text {
+      font-size: 1.1rem; line-height: 1.6; color: #ccc;
+    }
+    .info-text code {
+      background-color: rgba(0,255,65,0.1);
+      border: 1px solid rgba(0,255,65,0.3);
+      padding: 3px 6px; border-radius: 5px;
+      color: #9f9; font-family: monospace;
+    }
+    b { color: #ff6347; }
+  </style>
+</head>
+<body>
+  <h1 class="main-title">Freedom Project</h1>
+  <p class="subtitle">Link Directory</p>
 
-      body {
-        background-color: var(--bg-color);
-        color: var(--primary-color);
-        font-family: "Special Elite", monospace;
-        margin: 0;
-        padding: 15px;
-        overflow-x: hidden;
-        text-align: center;
-      }
+  <div class="content-box">
+    <h2>Shortcuts</h2>
+    <div class="link-container">
+      <a href="https://discord.com/login" class="link-btn">Discord</a>
+      <a href="https://mangafire.to" class="link-btn">Manga/Manwha/Manhua/Novels</a>
+      <a href="https://comick.io" class="link-btn">Manga/Manwha/Manhua/Novels</a>
+      <a href="https://anicrush.to" class="link-btn">Anime</a>
+      <a href="https://animension.to" class="link-btn">Anime</a>
+      <a href="https://docs.invidious.io/instances/" class="link-btn">Invidious instances</a>
+      <a href="https://inv.nadeko.net/" class="link-btn">Invidious direct link</a>
+      <a href="https://cataz.to" class="link-btn">Movies and TV</a>
+      <a href="https://osintframework.com/" class="link-btn">Information gathering tools</a>
+      <a href="https://www.ssega.com/" class="link-btn">Sega games</a>
+      <a href="https://www.crazygames.com/" class="link-btn">Crazygames</a>
+      <a href="https://libgen.is/" class="link-btn">Books</a>
+      <a href="https://annas-archive.org/" class="link-btn">Books</a>
+      <a href="https://poki.com/" class="link-btn">Poki Games</a>
+      <a href="https://www.browserling.com/" class="link-btn">Browserling</a>
+      <a href="https://en.wikipedia.org/" class="link-btn">Wikipedia</a>
+      <a href="https://now.gg/" class="link-btn">Now.gg</a>
+      <a href="https://www.roblox.com/" class="link-btn">Roblox</a>
+      <a href="https://neal.fun/" class="link-btn">Neal.fun games</a>
+      <a href="https://orteil.dashnet.org/cookieclicker/" class="link-btn">Cookie Clicker</a>
+      <a href="https://assets.theludos.com/games/sm64/" class="link-btn">Super Mario 64</a>
+      <a href="https://duck.ai" class="link-btn">DuckDuckGo AI</a>
+      <a href="https://nettleweb.com/" class="link-btn">Games/Emulators</a>
+    </div>
+  </div>
 
-      .main-title {
-        font-size: 2.8rem;
-        color: var(--primary-color);
-        text-shadow: 0 0 12px var(--glow-color-faint);
-        margin-bottom: 5px;
-      }
+  <div class="content-box info-box">
+    <h2>YouTube Embed Trick</h2>
+    <p class="info-text">
+      Change URL from:<br />
+      <code>youtube.com/watch?v=dQw4w9WgXcQ</code><br />
+      to:<br />
+      <code>youtube.com/embed/dQw4w9WgXcQ</code>
+    </p>
+  </div>
 
-      .subtitle {
-        font-size: 1.4rem;
-        margin-top: 0;
-        margin-bottom: 30px;
-        color: #ffffff;
-      }
+  <div class="content-box">
+    <h2>Unchecked Megalist <b>(not tested for compatibility)</b></h2>
 
-      .content-box {
-        border: 2px solid var(--primary-color);
-        border-radius: 15px;
-        padding: 15px 25px;
-        margin: 20px auto;
-        max-width: 1200px;
-        background-color: var(--container-bg);
-        box-shadow:
-          0 0 15px var(--glow-color-faint),
-          inset 0 0 10px var(--glow-color-faint);
-        backdrop-filter: blur(2px);
-      }
-
-      .info-box {
-        width: fit-content;
-      }
-
-      h2 {
-        font-size: 1.8rem;
-        color: #ffffff;
-        text-decoration: underline;
-        text-decoration-color: var(--primary-color);
-        text-underline-offset: 6px;
-        margin-top: 5px;
-        margin-bottom: 20px;
-        text-shadow: none;
-      }
-
-      h3 {
-        font-size: 1.2rem;
-        color: var(--primary-color);
-        margin-top: 30px;
-        margin-bottom: 15px;
-      }
-
-      .link-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .link-btn {
-        display: inline-block;
-        background-color: #111;
-        color: var(--primary-color);
-        border: 1px solid var(--primary-color);
-        padding: 10px 18px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-family: "Special Elite", monospace;
-        transition:
-          all 0.3s ease,
-          transform 0.1s ease;
-        box-shadow: 0 0 5px var(--glow-color-faint);
-      }
-
-      .link-btn:hover {
-        background-color: var(--primary-color);
-        color: var(--bg-color);
-        box-shadow: 0 0 15px var(--glow-color);
-        transform: translateY(-2px) scale(1.02);
-      }
-
-      .link-btn:active {
-        transform: translateY(0) scale(1);
-      }
-
-      .info-text {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #ccc;
-      }
-
-      .info-text code {
-        background-color: rgba(0, 255, 65, 0.1);
-        border: 1px solid rgba(0, 255, 65, 0.3);
-        padding: 3px 6px;
-        border-radius: 5px;
-        color: #9f9;
-        font-family: monospace;
-      }
-
-      b {
-        color: #ff6347;
-      }
-    </style>
-  </head>
-  <body>
-    <h1 class="main-title">Freedom Project</h1>
-    <p class="subtitle">Link Directory</p>
-
-    <div class="content-box">
-      <h2>Shortcuts</h2>
-      <div class="link-container">
-        <a href="https://discord.com/login" class="link-btn">Discord</a>
-        <a href="https://mangafire.to" class="link-btn"
-          >Manga/Manwha/Manhua/Novels</a
-        >
-        <a href="https://comick.io" class="link-btn"
-          >Manga/Manwha/Manhua/Novels</a
-        >
-        <a href="https://anicrush.to" class="link-btn">Anime</a>
-        <a href="https://animension.to" class="link-btn">Anime</a>
-        <a href="https://docs.invidious.io/instances/" class="link-btn"
-          >Invidious instances</a
-        >
-        <a href="https://inv.nadeko.net/" class="link-btn"
-          >Invidious direct link</a
-        >
-        <a href="https://cataz.to" class="link-btn">Movies and TV</a>
-        <a href="https://osintframework.com/" class="link-btn"
-          >Information gathering tools</a
-        >
-        <a href="https://www.ssega.com/" class="link-btn">Sega games</a>
-        <a href="https://www.crazygames.com/" class="link-btn">Crazygames</a>
-        <a href="https://libgen.is/" class="link-btn">Books</a>
-        <a href="https://annas-archive.org/" class="link-btn">Books</a>
-        <a href="https://poki.com/" class="link-btn">Poki Games</a>
-        <a href="https://www.browserling.com/" class="link-btn">Browserling</a>
-        <a href="https://en.wikipedia.org/" class="link-btn">Wikipedia</a>
-        <a href="https://now.gg/" class="link-btn">Now.gg</a>
-        <a href="https://www.roblox.com/" class="link-btn">Roblox</a>
-        <a href="https://neal.fun/" class="link-btn">Neal.fun games</a>
-        <a href="https://orteil.dashnet.org/cookieclicker/" class="link-btn"
-          >Cookie Clicker</a
-        >
-        <a href="https://assets.theludos.com/games/sm64/" class="link-btn"
-          >Super Mario 64</a
-        >
-        <a href="https://duck.ai" class="link-btn"
-          >DuckDuckGo AI (Contains multiple AI models)</a
-        >
-        <a href="https://nettleweb.com/" class="link-btn">Games/Emulators</a>
-      </div>
+    <h3>Emulators</h3>
+    <div class="link-container">
+      <a href="https://playclassic.games/" class="link-btn">Classic games online</a>
+      <a href="https://classicreload.com/" class="link-btn">ClassicReload</a>
+      <a href="https://dosdeck.com/" class="link-btn">DOS_deck</a>
+      <a href="https://www.free80sarcade.com/" class="link-btn">Free 80s Arcade</a>
+      <a href="https://gba.js.org/" class="link-btn">GBA Online • Game Boy Advance</a>
+      <a href="https://www.retrogames.onl/" class="link-btn">Play Retro Games Online</a>
+      <a href="https://www.retrogames.cz/" class="link-btn">RetroGames</a>
+      <a href="https://retrogamesonline.io/" class="link-btn">Retro Games</a>
+      <a href="https://megadrive-emulator.com/" class="link-btn">SEGA Online Emulator</a>
+      <a href="https://www.ssega.com/" class="link-btn">SSega</a>
+      <a href="https://www.webrcade.com/" class="link-btn">webЯcade</a>
     </div>
 
-    <div class="content-box info-box">
-      <h2>YouTube Embed Trick</h2>
-      <p class="info-text">
-        Change URL from:<br />
-        <code>youtube.com/watch?v=dQw4w9WgXcQ</code><br />
-        to:<br />
-        <code>youtube.com/embed/dQw4w9WgXcQ</code>
-      </p>
+    <h3>Anime</h3>
+    <div class="link-container">
+      <a href="https://123anime.info/" class="link-btn">123anime</a>
+      <a href="https://1anime.co/" class="link-btn">1Anime</a>
+      <a href="https://4anime.gg/" class="link-btn">4anime</a>
+      <a href="https://all-wish.me/" class="link-btn">Allwish</a>
+      <a href="https://anicrush.to/" class="link-btn">Anicrush</a>
+      <a href="https://anidey.fun/" class="link-btn">Anidey</a>
+      <a href="https://anikoto.to/" class="link-btn">Anikoto</a>
+      <a href="https://www.animerealms.org/" class="link-btn">Anime Realms</a>
+      <a href="https://anime-stream.io/" class="link-btn">Anime-Stream</a>
+      <a href="https://animefrenzy.cc/" class="link-btn">AnimeFrenzy</a>
+      <a href="https://animehub.ac/" class="link-btn">AnimeHub</a>
+      <a href="https://animenana.com/" class="link-btn">AnimeNana</a>
+      <a href="https://animenosub.to/" class="link-btn">AnimeNoSub</a>
+      <a href="https://animension.to/" class="link-btn">Animension</a>
+      <a href="https://animeowl.live/" class="link-btn">AnimeOwl</a>
+      <a href="https://animepahe.ru/" class="link-btn">AnimePahe</a>
+      <a href="https://www.animeparadise.moe/" class="link-btn">AnimeParadise</a>
+      <a href="https://animeuwutv.com/" class="link-btn">AnimeUwU TV</a>
+      <a href="https://animexin.vip/" class="link-btn">AnimeXin • Donghua</a>
+      <a href="https://anitaku.pe/" class="link-btn">Anitaku</a>
+      <a href="https://anizone.to/" class="link-btn">AniZone</a>
+      <a href="https://gojo.wtf/" class="link-btn">Gojo</a>
+      <a href="https://hianime.to/" class="link-btn">HiAnime</a>
+      <a href="https://holymix.netlify.app/" class="link-btn">HolyMix</a>
+      <a href="https://kaido.to/" class="link-btn">Kaido</a>
+      <a href="https://kickassanime.am/" class="link-btn">KickAssAnime</a>
+      <a href="https://kuroiru.co/" class="link-btn">Kuroiru</a>
+      <a href="https://www.miruro.tv/" class="link-btn">Miruro</a>
+      <a href="https://myanime.live/" class="link-btn">Myanime • Donghua</a>
+      <a href="https://wcofun.org/" class="link-btn">WcoFun</a>
+      <a href="https://yukiwatch.su/" class="link-btn">YukiWatch</a>
     </div>
 
-    <div class="content-box">
-      <h2>
-        Unchecked Megalist
-        <b>(not tested for compatibility)</b>
-      </h2>
-
-      <h3>Emulators</h3>
-      <div class="link-container">
-        <a href="https://playclassic.games/" class="link-btn"
-          >Classic games online</a
-        >
-        <a href="https://classicreload.com/" class="link-btn">ClassicReload</a>
-        <a href="https://dosdeck.com/" class="link-btn">DOS_deck</a>
-        <a href="https://www.free80sarcade.com/" class="link-btn"
-          >Free 80s Arcade</a
-        >
-        <a href="https://gba.js.org/" class="link-btn"
-          >GBA Online • Game Boy Advance</a
-        >
-        <a href="https://www.retrogames.onl/" class="link-btn"
-          >Play Retro Games Online</a
-        >
-        <a href="https://www.retrogames.cz/" class="link-btn">RetroGames</a>
-        <a href="https://retrogamesonline.io/" class="link-btn">Retro Games</a>
-        <a href="https://megadrive-emulator.com/" class="link-btn"
-          >SEGA Online Emulator</a
-        >
-        <a href="https://www.ssega.com/" class="link-btn">SSega</a>
-        <a href="https://www.webrcade.com/" class="link-btn">webЯcade</a>
-      </div>
-
-      <h3>Anime</h3>
-      <div class="link-container">
-        <a href="https://123anime.info/" class="link-btn">123anime</a>
-        <a href="https://1anime.co/" class="link-btn">1Anime</a>
-        <a href="https://4anime.gg/" class="link-btn">4anime</a>
-        <a href="https://all-wish.me/" class="link-btn">Allwish</a>
-        <a href="https://anicrush.to/" class="link-btn">Anicrush</a>
-        <a href="https://anidey.fun/" class="link-btn">Anidey</a>
-        <a href="https://anikoto.to/" class="link-btn">Anikoto</a>
-        <a href="https://www.animerealms.org/" class="link-btn">Anime Realms</a>
-        <a href="https://anime-stream.io/" class="link-btn">Anime-Stream</a>
-        <a href="https://animefrenzy.cc/" class="link-btn">AnimeFrenzy</a>
-        <a href="https://animehub.ac/" class="link-btn">AnimeHub</a>
-        <a href="https://animenana.com/" class="link-btn">AnimeNana</a>
-        <a href="https://animenosub.to/" class="link-btn">AnimeNoSub</a>
-        <a href="https://animension.to/" class="link-btn">Animension</a>
-        <a href="https://animeowl.live/" class="link-btn">AnimeOwl</a>
-        <a href="https://animepahe.ru/" class="link-btn">AnimePahe</a>
-        <a href="https://www.animeparadise.moe/" class="link-btn"
-          >AnimeParadise</a
-        >
-        <a href="https://animeuwutv.com/" class="link-btn">AnimeUwU TV</a>
-        <a href="https://animexin.vip/" class="link-btn">AnimeXin • Donghua</a>
-        <a href="https://anitaku.pe/" class="link-btn">Anitaku</a>
-        <a href="https://anizone.to/" class="link-btn">AniZone</a>
-        <a href="https://gojo.wtf/" class="link-btn">Gojo</a>
-        <a href="https://hianime.to/" class="link-btn">HiAnime</a>
-        <a href="https://holymix.netlify.app/" class="link-btn">HolyMix</a>
-        <a href="https://kaido.to/" class="link-btn">Kaido</a>
-        <a href="https://kickassanime.am/" class="link-btn">KickAssAnime</a>
-        <a href="https://kuroiru.co/" class="link-btn">Kuroiru</a>
-        <a href="https://www.miruro.tv/" class="link-btn">Miruro</a>
-        <a href="https://myanime.live/" class="link-btn">Myanime • Donghua</a>
-        <a href="https://wcofun.org/" class="link-btn">WcoFun</a>
-        <a href="https://yukiwatch.su/" class="link-btn">YukiWatch</a>
-      </div>
-
-      <h3>Movies/TV</h3>
-      <div class="link-container">
-        <a href="https://www.345movies.com/home" class="link-btn">345Movies</a>
-        <a href="https://456movie.com/" class="link-btn">456movie</a>
-        <a href="https://cinema.7xtream.com/" class="link-btn">7Xtream</a>
-        <a href="https://ableflix.cc/" class="link-btn">AbleFlix</a>
-        <a href="https://watch.autoembed.cc/" class="link-btn">Autoembed</a>
-        <a href="https://bingemaster.netlify.app/" class="link-btn">Binge</a>
-        <a href="https://bingeflex.vercel.app/" class="link-btn">Bingeflex</a>
-        <a href="https://www.booflix.to/" class="link-btn">BOOFLIX</a>
-        <a href="https://brocoflix.com/" class="link-btn">BrocoFlix</a>
-        <a href="https://broflix.cc/" class="link-btn">BROFLIX</a>
-        <a href="https://cataz.to/" class="link-btn">Cataz</a>
-        <a href="https://www.cineby.ru/" class="link-btn">Cineby</a>
-        <a href="https://cinemadeck.com/" class="link-btn">CinemaDeck</a>
-        <a href="https://cinemaunlocked.com/" class="link-btn">CinemaUnlocked</a>
-        <a href="https://cineplaytv.netlify.app/" class="link-btn">CINEPLAY</a>
-        <a href="https://corsflix.us.kg/" class="link-btn">CorsFlix</a>
-        <a href="https://cucuflix.xyz/" class="link-btn">CucuFlix</a>
-        <a href="https://dashflix.top/" class="link-btn">Dashflix</a>
-        <a href="https://donkey.to/" class="link-btn">Donkey</a>
-        <a href="https://dopebox.to/" class="link-btn">DopeBox</a>
-        <a href="https://filmex.to/" class="link-btn">Filmex</a>
-        <a href="https://fmovies-hd.to/" class="link-btn">FMovies</a>
-        <a href="https://flixhq.click/" class="link-btn">FlixHQ</a>
-        <a href="https://freek.to/" class="link-btn">Freek</a>
-        <a href="https://fsharetv.co/" class="link-btn">FshareTV</a>
-        <a href="https://goku.sx/" class="link-btn">GOKU</a>
-        <a href="https://gomovies.sx/" class="link-btn">GoMovies</a>
-        <a href="https://www.gstream.uk/" class="link-btn">GStream</a>
-        <a href="https://heartive.pages.dev/" class="link-btn">Heartive</a>
-        <a href="https://himovies.sx/" class="link-btn">HiMovies</a>
-        <a href="https://hurawatchz.to/" class="link-btn">Hurawatch</a>
-        <a href="https://hydrahd.com/" class="link-btn">HydraHD</a>
-        <a href="https://kipflix.xyz/" class="link-btn">kipflix</a>
-        <a href="https://kipstream.lol/" class="link-btn">KipStream</a>
-        <a href="https://www.letstream.site/" class="link-btn">Letstream</a>
-        <a href="https://lookmovie2.to/" class="link-btn">LookMovie</a>
-        <a href="https://ww2.m4ufree.com/" class="link-btn">M4uFree</a>
-        <a href="https://mapple.tv/" class="link-btn">Mapple</a>
-      </div>
+    <h3>Movies/TV</h3>
+    <div class="link-container">
+      <a href="https://www.345movies.com/home" class="link-btn">345Movies</a>
+      <a href="https://456movie.com/" class="link-btn">456movie</a>
+      <a href="https://cinema.7xtream.com/" class="link-btn">7Xtream</a>
+      <a href="https://ableflix.cc/" class="link-btn">AbleFlix</a>
+      <a href="https://watch.autoembed.cc/" class="link-btn">Autoembed</a>
+      <a href="https://bingemaster.netlify.app/" class="link-btn">Binge</a>
+      <a href="https://bingeflex.vercel.app/" class="link-btn">Bingeflex</a>
+      <a href="https://www.booflix.to/" class="link-btn">BOOFLIX</a>
+      <a href="https://brocoflix.com/" class="link-btn">BrocoFlix</a>
+      <a href="https://broflix.cc/" class="link-btn">BROFLIX</a>
+      <a href="https://cataz.to/" class="link-btn">Cataz</a>
+      <a href="https://www.cineby.ru/" class="link-btn">Cineby</a>
+      <a href="https://cinemadeck.com/" class="link-btn">CinemaDeck</a>
+      <a href="https://cinemaunlocked.com/" class="link-btn">CinemaUnlocked</a>
+      <a href="https://cineplaytv.netlify.app/" class="link-btn">CINEPLAY</a>
+      <a href="https://corsflix.us.kg/" class="link-btn">CorsFlix</a>
+      <a href="https://cucuflix.xyz/" class="link-btn">CucuFlix</a>
+      <a href="https://dashflix.top/" class="link-btn">Dashflix</a>
+      <a href="https://donkey.to/" class="link-btn">Donkey</a>
+      <a href="https://dopebox.to/" class="link-btn">DopeBox</a>
+      <a href="https://filmex.to/" class="link-btn">Filmex</a>
+      <a href="https://fmovies-hd.to/" class="link-btn">FMovies</a>
+      <a href="https://flixhq.click/" class="link-btn">FlixHQ</a>
+      <a href="https://freek.to/" class="link-btn">Freek</a>
+      <a href="https://fsharetv.co/" class="link-btn">FshareTV</a>
+      <a href="https://goku.sx/" class="link-btn">GOKU</a>
+      <a href="https://gomovies.sx/" class="link-btn">GoMovies</a>
+      <a href="https://www.gstream.uk/" class="link-btn">GStream</a>
+      <a href="https://heartive.pages.dev/" class="link-btn">Heartive</a>
+      <a href="https://himovies.sx/" class="link-btn">HiMovies</a>
+      <a href="https://hurawatchz.to/" class="link-btn">Hurawatch</a>
+      <a href="https://hydrahd.com/" class="link-btn">HydraHD</a>
+      <a href="https://kipflix.xyz/" class="link-btn">kipflix</a>
+      <a href="https://kipstream.lol/" class="link-btn">KipStream</a>
+      <a href="https://www.letstream.site/" class="link-btn">Letstream</a>
+      <a href="https://lookmovie2.to/" class="link-btn">LookMovie</a>
+      <a href="https://ww2.m4ufree.com/" class="link-btn">M4uFree</a>
+      <a href="https://mapple.tv/" class="link-btn">Mapple</a>
     </div>
-  </body>
+  </div>
+</body>
 </html>
